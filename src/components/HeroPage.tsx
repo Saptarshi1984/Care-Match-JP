@@ -2,34 +2,35 @@
 
 import Image from "next/image";
 import NextLink from "next/link";
-import { Box, Button, Container, Flex, Heading, Icon, type IconProps, Link, Stack, Text } from "@chakra-ui/react";
-import { useColorModeValue } from "./ui/color-mode";
+import { Box, Button, Container, Flex, Heading, Icon, IconButton, type IconProps, Link, Stack, Text } from "@chakra-ui/react";
+import { useColorMode, useColorModeValue } from "./ui/color-mode";
+import { LuMoon, LuSun } from "react-icons/lu";
 const heroImageSrc = "/assets/heroimage.png";
 
-const brandTitle = "\u5730\u57DF\u652F\u63F4";
+const brandTitle = "地域支援";
 const heroTitle =
-  "\u9AD8\u9F62\u8005\u306E\u65E5\u3005\u306E\u30CB\u30FC\u30BA\u3068\u7DCA\u6025\u4E8B\u614B\u3092\u5730\u57DF\u4F4F\u6C11\u304C\u652F\u63F4\u3059\u308B\u30D7\u30E9\u30C3\u30C8\u30D5\u30A9\u30FC\u30E0";
+  "高齢者の日々のニーズと緊急事態を地域住民が支援するプラットフォーム";
 const heroSubtitle =
-  "\u5FC5\u8981\u306A\u4EBA\u3068\u3001\u52A9\u3051\u305F\u3044\u5730\u57DF\u306E\u4EBA\u3005\u3092\u3064\u306A\u304E\u307E\u3059\u3002\u30B3\u30DF\u30E5\u30CB\u30C6\u30A3\u306E\u529B\u3067\u3001\u6BCE\u65E5\u3092\u3082\u3063\u3068\u5B89\u5FC3\u306B\u3002";
+  "必要な人と、助けたい地域の人々をつなぎます。コミュニティの力で、毎日をもっと安心に。";
 const postNeedLabel = "\u30CB\u30FC\u30BA\u3092\u6295\u7A3F";
 const joinVolunteerLabel = "\u30DC\u30E9\u30F3\u30C6\u30A3\u30A2\u306B\u53C2\u52A0";
 
-const CheckIcon = (props: IconProps) => (
-  <Icon viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.59L7.41 13 6 14.41l5 5 9-9L18.59 9 11 16.59z" />
-  </Icon>
-);
+
 
 const navLinks = [
   { href: "#", label: "Login" },
-  { href: "#", label: "Sign Up" },
   { href: "#", label: "About Us" },
 ];
 
 const HeroPage = () => {
   const pageBg = useColorModeValue("#F5F5DC", "#101c22");
   const pageText = useColorModeValue("#333333", "#F5F5DC");
-
+  const { toggleColorMode, colorMode } = useColorMode();
+  const colorToggleLabel = useColorModeValue("Switch to dark mode", "Switch to light mode");
+  const navLinkColor = useColorModeValue("#333333", "white");
+  const navLinkHoverColor = useColorModeValue("#2C5282", "#87CEEB");
+  const toggleHoverBg = useColorModeValue("blackAlpha.100", "whiteAlpha.200");
+  
   return (
     <Flex
       direction="column"
@@ -50,29 +51,41 @@ const HeroPage = () => {
         <Container maxW="7xl" px={{ base: 4, md: 6, lg: 8 }}>
           <Flex align="center" justify="space-between">
             <Flex align="center" gap={4}>
-              <CheckIcon color="#A3B899" boxSize={8} />
-              <Text fontSize="xl" fontWeight="bold" letterSpacing="wide" color="white">
+              
+              <Text fontSize="2xl" fontWeight="bold" letterSpacing="wide" color={navLinkColor}>
                 {brandTitle}
               </Text>
             </Flex>
-            <Flex
-              gap={8}
-              display={{ base: "none", md: "flex" }}
-              align="center"
-            >
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  as={NextLink}
-                  href={link.href}
-                  fontSize="sm"
-                  fontWeight="medium"
-                  color="white"
-                  _hover={{ color: "#87CEEB" }}
-                >
-                  {link.label}
-                </Link>
-              ))}
+            <Flex align="center" gap={{ base: 2, md: 6 }}>
+              <IconButton
+                aria-label={colorToggleLabel}
+                onClick={toggleColorMode}
+                variant="ghost"
+                size="sm"
+                color={navLinkColor}
+                _hover={{ bg: toggleHoverBg, color: navLinkHoverColor }}
+              >
+                {colorMode === "light" ? <LuSun /> : <LuMoon />}
+              </IconButton>
+              <Flex
+                gap={8}
+                display={{ base: "none", md: "flex" }}
+                align="center"
+              >
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    as={NextLink}
+                    href={link.href}
+                    fontSize="sm"
+                    fontWeight="medium"
+                    color={navLinkColor}
+                    _hover={{ color: navLinkHoverColor }}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </Flex>
             </Flex>
           </Flex>
         </Container>
@@ -118,7 +131,7 @@ const HeroPage = () => {
                   as="h1"
                   fontSize={{ base: "2.5rem", md: "3.5rem", lg: "4rem" }}
                   fontWeight="black"
-                  color="white"
+                  color="pink"
                   letterSpacing="wide"
                   lineHeight="1.2"
                 >
@@ -127,7 +140,7 @@ const HeroPage = () => {
                 <Text
                   fontSize={{ base: "lg", md: "xl" }}
                   fontWeight="normal"
-                  color="white"
+                  color={"gray.800"}
                 >
                   {heroSubtitle}
                 </Text>
