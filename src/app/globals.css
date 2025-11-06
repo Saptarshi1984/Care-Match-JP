@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+
+:root { --brand: #2b6cb0; }
+html, body { height: 100%; }
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

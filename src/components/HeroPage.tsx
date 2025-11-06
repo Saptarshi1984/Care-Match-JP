@@ -2,35 +2,42 @@
 
 import Image from "next/image";
 import NextLink from "next/link";
-import { Box, Button, Container, Flex, Heading, Icon, IconButton, type IconProps, Link, Stack, Text } from "@chakra-ui/react";
-import { useColorMode, useColorModeValue } from "./ui/color-mode";
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  IconButton,
+  Link,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import { useTranslations } from "next-intl";
 import { LuMoon, LuSun } from "react-icons/lu";
+
+import { useColorMode, useColorModeValue } from "./ui/color-mode";
+
 const heroImageSrc = "/assets/heroimage.png";
 
-const brandTitle = "地域支援";
-const heroTitle =
-  "高齢者の日々のニーズと緊急事態を地域住民が支援するプラットフォーム";
-const heroSubtitle =
-  "必要な人と、助けたい地域の人々をつなぎます。コミュニティの力で、毎日をもっと安心に。";
-const postNeedLabel = "\u30CB\u30FC\u30BA\u3092\u6295\u7A3F";
-const joinVolunteerLabel = "\u30DC\u30E9\u30F3\u30C6\u30A3\u30A2\u306B\u53C2\u52A0";
-
-
-
-const navLinks = [
-  { href: "#", label: "Login" },
-  { href: "#", label: "About Us" },
-];
-
 const HeroPage = () => {
+  const t = useTranslations("Hero");
   const pageBg = useColorModeValue("#F5F5DC", "#101c22");
   const pageText = useColorModeValue("#333333", "#F5F5DC");
-  const { toggleColorMode, colorMode } = useColorMode();
-  const colorToggleLabel = useColorModeValue("Switch to dark mode", "Switch to light mode");
   const navLinkColor = useColorModeValue("#333333", "white");
   const navLinkHoverColor = useColorModeValue("#2C5282", "#87CEEB");
   const toggleHoverBg = useColorModeValue("blackAlpha.100", "whiteAlpha.200");
-  
+  const { toggleColorMode, colorMode } = useColorMode();
+  const colorToggleLabel = useColorModeValue(
+    t("aria.switchToDark"),
+    t("aria.switchToLight"),
+  );
+
+  const navLinks = [
+    { href: "#", label: t("nav.login") },
+    { href: "#", label: t("nav.about") },
+  ];
+
   return (
     <Flex
       direction="column"
@@ -51,9 +58,8 @@ const HeroPage = () => {
         <Container maxW="7xl" px={{ base: 4, md: 6, lg: 8 }}>
           <Flex align="center" justify="space-between">
             <Flex align="center" gap={4}>
-              
               <Text fontSize="2xl" fontWeight="bold" letterSpacing="wide" color={navLinkColor}>
-                {brandTitle}
+                {t("brandTitle")}
               </Text>
             </Flex>
             <Flex align="center" gap={{ base: 2, md: 6 }}>
@@ -95,7 +101,6 @@ const HeroPage = () => {
         as="main"
         flex="1"
         display="flex"
-        
         justifyContent="center"
         py={{ base: 16, md: 20 }}
       >
@@ -109,7 +114,7 @@ const HeroPage = () => {
           >
             <Image
               src={heroImageSrc}
-              alt="A warm, inviting image of a multi-generational Japanese community happily interacting outdoors."
+              alt={t("imageAlt")}
               fill
               priority
               sizes="(max-width: 768px) 100vw, 1024px"
@@ -125,7 +130,17 @@ const HeroPage = () => {
               inset={0}
               bgGradient="linear(to-b, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.7))"
             />
-            <Stack position="relative" zIndex={1} gap={24} align="center" justify={'center'} textAlign="center" h={800} px={{ base: 4, md: 8 }} my={10}>
+            <Stack
+              position="relative"
+              zIndex={1}
+              gap={24}
+              align="center"
+              justify={"center"}
+              textAlign="center"
+              h={800}
+              px={{ base: 4, md: 8 }}
+              my={10}
+            >
               <Stack gap={4}>
                 <Heading
                   as="h1"
@@ -135,14 +150,10 @@ const HeroPage = () => {
                   letterSpacing="wide"
                   lineHeight="1.2"
                 >
-                  {heroTitle}
+                  {t("heroTitle")}
                 </Heading>
-                <Text
-                  fontSize={{ base: "lg", md: "xl" }}
-                  fontWeight="normal"
-                  color={"gray.800"}
-                >
-                  {heroSubtitle}
+                <Text fontSize={{ base: "lg", md: "xl" }} fontWeight="normal" color="gray.800">
+                  {t("heroSubtitle")}
                 </Text>
               </Stack>
               <Stack gap={4} direction={{ base: "column", sm: "row" }} w="full" maxW="md">
@@ -160,7 +171,7 @@ const HeroPage = () => {
                   transition="transform 0.2s ease-in-out"
                   _hover={{ transform: "scale(1.05)", bg: "#93a885" }}
                 >
-                  {postNeedLabel}
+                  {t("postNeedLabel")}
                 </Button>
                 <Button
                   w={20}
@@ -176,7 +187,7 @@ const HeroPage = () => {
                   transition="transform 0.2s ease-in-out"
                   _hover={{ transform: "scale(1.05)", bg: "#ef906a" }}
                 >
-                  {joinVolunteerLabel}
+                  {t("joinVolunteerLabel")}
                 </Button>
               </Stack>
             </Stack>

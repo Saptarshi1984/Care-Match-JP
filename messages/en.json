@@ -1,0 +1,22 @@
+{
+  "Hero": {
+    "brandTitle": "CareMatch Japan",
+    "heroTitle": "Connecting care seekers and volunteers across Japan",
+    "heroSubtitle": "CareMatch Japan helps families share their caregiving needs and connect with compassionate volunteers in their community.",
+    "postNeedLabel": "Post a Need",
+    "joinVolunteerLabel": "Join as Volunteer",
+    "imageAlt": "A warm, inviting image of a multi-generational Japanese community happily interacting outdoors.",
+    "nav": {
+      "login": "Login",
+      "about": "About Us"
+    },
+    "aria": {
+      "switchToDark": "Switch to dark mode",
+      "switchToLight": "Switch to light mode"
+    }
+  },
+  "Metadata": {
+    "title": "CareMatch Japan",
+    "description": "Connecting caregiving families with compassionate volunteers."
+  }
+}
