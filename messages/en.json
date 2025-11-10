@@ -7,9 +7,15 @@
     "joinVolunteerLabel": "Join as Volunteer",
     "imageAlt": "A warm, inviting image of a multi-generational Japanese community happily interacting outdoors.",
     "nav": {
-      "login": "Login",
-      "about": "About Us"
+      "home": "Home",
+      "about": "About Us",
+      "contact": "Contact Us"
     },
+    "roleSelectPlaceholder": "Select",
+    "roleSelectLabel": "Join community as",
+    "roleCareSeeker": "I'm a Care Seeker",
+    "roleVolunteer": "I'm a Volunteer",
+    "ctaJoin": "Join",
     "aria": {
       "switchToDark": "Switch to dark mode",
       "switchToLight": "Switch to light mode"
@@ -18,5 +24,15 @@
   "Metadata": {
     "title": "CareMatch Japan",
     "description": "Connecting caregiving families with compassionate volunteers."
+  },
+  "Footer": {
+    "brand": "CareMatch Japan",
+    "links": {
+      "home": "Home",
+      "about": "About Us",
+      "contact": "Contact",
+      "privacy": "Privacy"
+    },
+    "copyright": "@2025 CareMatch Japan. All rights reserved."
   }
 }

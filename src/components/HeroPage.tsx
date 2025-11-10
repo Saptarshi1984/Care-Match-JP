@@ -8,37 +8,33 @@ import {
   Container,
   Flex,
   Heading,
-  IconButton,
+  Portal,
+  Select,
   Stack,
   Text,
+  createListCollection,
 } from "@chakra-ui/react";
-import { useLocale, useTranslations } from "next-intl";
-import { LuMoon, LuSun } from "react-icons/lu";
-import { useColorMode, useColorModeValue } from "./ui/color-mode";
-import LanguageSwitch from "./LanguageSwitch";
+import { useTranslations } from "next-intl";
+import { useColorModeValue } from "./ui/color-mode";
+import { useMemo, useState } from "react";
 
 const heroImageSrc = "/assets/heroimage.png";
 
 const HeroPage = () => {
   const t = useTranslations("Hero");
-  const locale = useLocale();
-  const pageBg = useColorModeValue("#F5F5DC", "#101c22");
-  const pageText = useColorModeValue("#333333", "#F5F5DC");
-  const navLinkColor = useColorModeValue("#333333", "white");
-  const navLinkHoverColor = useColorModeValue("#2C5282", "#87CEEB");
-  const toggleHoverBg = useColorModeValue("blackAlpha.100", "whiteAlpha.200");
-  const { toggleColorMode, colorMode, setColorMode } = useColorMode();
-  
-
-  const colorToggleLabel = useColorModeValue(
-    t("aria.switchToDark"),
-    t("aria.switchToLight")
+  const pageBg = useColorModeValue("#F2E8E1", "#101c22");
+  const pageText = useColorModeValue("#2D2A26", "#F4F4F2");
+  const [role, setRole] = useState<string | undefined>(undefined);
+  const roleOptions = useMemo(
+    () =>
+      createListCollection({
+        items: [
+          { label: t("roleCareSeeker"), value: "care-seeker" },
+          { label: t("roleVolunteer"), value: "volunteer" },
+        ],
+      }),
+    [t],
   );
-
-  const navLinks = [
-    { href: "#", label: t("nav.login") },
-    { href: "#", label: t("nav.about") },
-  ];
 
   return (
     <Flex
@@ -48,51 +44,6 @@ const HeroPage = () => {
       color={pageText}
       fontFamily="'Noto Sans JP', 'Public Sans', sans-serif"
     >
-      <Box
-        as="header"
-        position="absolute"
-        top={0}
-        left={0}
-        right={0}
-        zIndex={10}
-        py={4}
-      >
-        <Container maxW="7xl" px={{ base: 4, md: 6, lg: 8 }}>
-          <Flex align="center" justify="space-between">
-            <Flex align="center" gap={4}>
-              <Text
-                fontSize="2xl"
-                fontWeight="bold"
-                letterSpacing="wide"
-                color={navLinkColor}
-              >
-                {t("brandTitle")}
-              </Text>
-            </Flex>
-            <Flex align="center" gap={{ base: 2, md: 6 }}>
-              <Flex align="center" gap={3}>
-                <IconButton
-                  aria-label={colorToggleLabel}
-                  onClick={toggleColorMode}
-                  variant="ghost"
-                  size="sm"
-                  color={navLinkColor}
-                  _hover={{ bg: toggleHoverBg, color: navLinkHoverColor }}
-                >
-                  {colorMode === "light" ? <LuSun /> : <LuMoon />}
-                </IconButton>
-              </Flex>
-              <LanguageSwitch lang={locale as "en" | "ja"} />
-              <Flex
-                gap={8}
-                display={{ base: "none", md: "flex" }}
-                align="center"
-              ></Flex>
-            </Flex>
-          </Flex>
-        </Container>
-      </Box>
-
       <Box
         as="main"
         flex="1"
@@ -117,7 +68,7 @@ const HeroPage = () => {
               style={{
                 objectFit: "cover",
                 objectPosition: "center",
-                filter: "blur(2px)",
+                filter: "blur(4px)",
                 transform: "scale(1.06)",
               }}
             />
@@ -135,65 +86,105 @@ const HeroPage = () => {
               textAlign="center"
               h={800}
               px={{ base: 4, md: 8 }}
-              my={10}
+              mt={10}
+              mb={0}
             >
               <Stack gap={4}>
                 <Heading
                   as="h1"
                   fontSize={{ base: "2.5rem", md: "3.5rem", lg: "4rem" }}
-                  fontWeight="black"
-                  color="pink"
+                  fontWeight="800"
+                  color={useColorModeValue("pink", "pink")}
                   letterSpacing="wide"
                   lineHeight="1.2"
                 >
                   {t("heroTitle")}
                 </Heading>
                 <Text
-                  fontSize={{ base: "lg", md: "xl" }}
-                  fontWeight="normal"
+                  fontSize={{ base: "md", md: "lg" }}
+                  fontWeight="500"
                   color="gray.800"
+                  lineHeight="1.2"
                 >
                   {t("heroSubtitle")}
                 </Text>
               </Stack>
               <Stack
                 gap={4}
-                direction={{ base: "column", sm: "row" }}
+                direction="column"
                 w="full"
+                minH={200}
                 maxW="md"
+                align="center"
+                justify="center"
               >
-                <Button
-                  w={20}
-                  minW={{ sm: "200px" }}
-                  h="56px"
-                  px={8}
-                  bg="#A3B899"
-                  color="white"
-                  fontSize="lg"
-                  fontWeight="bold"
-                  borderRadius="lg"
-                  boxShadow="lg"
-                  transition="transform 0.2s ease-in-out"
-                  _hover={{ transform: "scale(1.05)", bg: "#93a885" }}
-                >
-                  {t("postNeedLabel")}
-                </Button>
-                <Button
-                  w={20}
-                  minW={{ sm: "200px" }}
-                  h="56px"
-                  px={8}
-                  bg="#FFA07A"
-                  color="white"
-                  fontSize="lg"
-                  fontWeight="bold"
-                  borderRadius="lg"
-                  boxShadow="lg"
-                  transition="transform 0.2s ease-in-out"
-                  _hover={{ transform: "scale(1.05)", bg: "#ef906a" }}
-                >
-                  {t("joinVolunteerLabel")}
-                </Button>
+                <Box w="full" maxW="320px">
+                  <Select.Root
+                    width="100%"
+                    collection={roleOptions}
+                    value={role ? [role] : []}
+                    onValueChange={(details) =>
+                      setRole(details.value[0] ?? undefined)
+                    }
+                    size="sm"
+                  >
+                    <Select.HiddenSelect />
+                    <Select.Label color="orange" fontSize={16}>
+                      {t("roleSelectLabel")}
+                    </Select.Label>
+                    <Select.Control>
+                      <Select.Trigger
+                        borderColor="#E2DDD7"
+                        bg="#0F0F0F"
+                        color="#F5F5F5"
+                        _hover={{
+                          borderColor: "#B7342C",
+                        }}
+                      >
+                        <Select.ValueText
+                          placeholder={t("roleSelectPlaceholder")}
+                        />
+                      </Select.Trigger>
+                      <Select.IndicatorGroup>
+                        <Select.Indicator />
+                      </Select.IndicatorGroup>
+                    </Select.Control>
+                    <Portal>
+                      <Select.Positioner>
+                        <Select.Content bg="#0F0F0F" color="#F5F5F5">
+                          {roleOptions.items.map((option) => (
+                            <Select.Item item={option} key={option.value}>
+                              {option.label}
+                              <Select.ItemIndicator />
+                            </Select.Item>
+                          ))}
+                        </Select.Content>
+                      </Select.Positioner>
+                    </Portal>
+                  </Select.Root>
+                </Box>
+
+                {role && (
+                  <Button
+                    position={'absolute'}
+                    bottom={40}
+                    w="full"
+                    maxW="120px"
+                    h="48px"
+                    px={4}
+                    py={2}
+                    variant={'solid'}
+                    colorPalette={'orange'}
+                    color="white"
+                    fontSize="md"
+                    fontWeight="bold"
+                    borderRadius="lg"
+                    boxShadow="lg"
+                    transition="transform 0.2s ease-in-out"                   
+                  >
+                    {t("ctaJoin")}
+                  </Button>
+                )}
               </Stack>
             </Stack>
           </Box>

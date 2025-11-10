@@ -7,17 +7,33 @@
     "joinVolunteerLabel": "ボランティアとして参加",
     "imageAlt": "あたたかい雰囲気の日本の多世代コミュニティが屋外で楽しそうに交流している様子。",
     "nav": {
-      "login": "ログイン",
-      "about": "私たちについて"
+      "home": "ホーム",
+      "about": "私たちについて",
+      "contact": "お問い合わせ"
     },
     "aria": {
       "switchToDark": "ダークモードに切り替える",
       "switchToLight": "ライトモードに切り替える",
       "switchLanguage": "言語を切り替える"
-    }
+    },
+    "roleSelectPlaceholder": "選択してください",
+    "roleCareSeeker": "介護サポートを探しています",
+    "roleVolunteer": "ボランティアとして参加します",
+    "ctaJoin": "参加する",
+    "roleSelectLabel": "参加する役割"
   },
   "Metadata": {
     "title": "ケアマッチ・ジャパン",
     "description": "ケアが必要な家族と思いやりのあるボランティアをつなげます。"
+  },
+  "Footer": {
+    "brand": "ケアマッチ・ジャパン",
+    "links": {
+      "home": "ホーム",
+      "about": "私たちについて",
+      "contact": "お問い合わせ",
+      "privacy": "プライバシー"
+    },
+    "copyright": "© 2025 ケアマッチ・ジャパン. All rights reserved."
   }
 }
