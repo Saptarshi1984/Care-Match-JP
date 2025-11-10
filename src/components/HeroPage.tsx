@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import NextLink from "next/link";
+
 import {
   Box,
   Button,
@@ -9,28 +9,30 @@ import {
   Flex,
   Heading,
   IconButton,
-  Link,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { LuMoon, LuSun } from "react-icons/lu";
-
 import { useColorMode, useColorModeValue } from "./ui/color-mode";
+import LanguageSwitch from "./LanguageSwitch";
 
 const heroImageSrc = "/assets/heroimage.png";
 
 const HeroPage = () => {
   const t = useTranslations("Hero");
+  const locale = useLocale();
   const pageBg = useColorModeValue("#F5F5DC", "#101c22");
   const pageText = useColorModeValue("#333333", "#F5F5DC");
   const navLinkColor = useColorModeValue("#333333", "white");
   const navLinkHoverColor = useColorModeValue("#2C5282", "#87CEEB");
   const toggleHoverBg = useColorModeValue("blackAlpha.100", "whiteAlpha.200");
-  const { toggleColorMode, colorMode } = useColorMode();
+  const { toggleColorMode, colorMode, setColorMode } = useColorMode();
+  
+
   const colorToggleLabel = useColorModeValue(
     t("aria.switchToDark"),
-    t("aria.switchToLight"),
+    t("aria.switchToLight")
   );
 
   const navLinks = [
@@ -58,40 +60,34 @@ const HeroPage = () => {
         <Container maxW="7xl" px={{ base: 4, md: 6, lg: 8 }}>
           <Flex align="center" justify="space-between">
             <Flex align="center" gap={4}>
-              <Text fontSize="2xl" fontWeight="bold" letterSpacing="wide" color={navLinkColor}>
+              <Text
+                fontSize="2xl"
+                fontWeight="bold"
+                letterSpacing="wide"
+                color={navLinkColor}
+              >
                 {t("brandTitle")}
               </Text>
             </Flex>
             <Flex align="center" gap={{ base: 2, md: 6 }}>
-              <IconButton
-                aria-label={colorToggleLabel}
-                onClick={toggleColorMode}
-                variant="ghost"
-                size="sm"
-                color={navLinkColor}
-                _hover={{ bg: toggleHoverBg, color: navLinkHoverColor }}
-              >
-                {colorMode === "light" ? <LuSun /> : <LuMoon />}
-              </IconButton>
+              <Flex align="center" gap={3}>
+                <IconButton
+                  aria-label={colorToggleLabel}
+                  onClick={toggleColorMode}
+                  variant="ghost"
+                  size="sm"
+                  color={navLinkColor}
+                  _hover={{ bg: toggleHoverBg, color: navLinkHoverColor }}
+                >
+                  {colorMode === "light" ? <LuSun /> : <LuMoon />}
+                </IconButton>
+              </Flex>
+              <LanguageSwitch lang={locale as "en" | "ja"} />
               <Flex
                 gap={8}
                 display={{ base: "none", md: "flex" }}
                 align="center"
-              >
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.label}
-                    as={NextLink}
-                    href={link.href}
-                    fontSize="sm"
-                    fontWeight="medium"
-                    color={navLinkColor}
-                    _hover={{ color: navLinkHoverColor }}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </Flex>
+              ></Flex>
             </Flex>
           </Flex>
         </Container>
@@ -152,11 +148,20 @@ const HeroPage = () => {
                 >
                   {t("heroTitle")}
                 </Heading>
-                <Text fontSize={{ base: "lg", md: "xl" }} fontWeight="normal" color="gray.800">
+                <Text
+                  fontSize={{ base: "lg", md: "xl" }}
+                  fontWeight="normal"
+                  color="gray.800"
+                >
                   {t("heroSubtitle")}
                 </Text>
               </Stack>
-              <Stack gap={4} direction={{ base: "column", sm: "row" }} w="full" maxW="md">
+              <Stack
+                gap={4}
+                direction={{ base: "column", sm: "row" }}
+                w="full"
+                maxW="md"
+              >
                 <Button
                   w={20}
                   minW={{ sm: "200px" }}

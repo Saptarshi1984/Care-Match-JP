@@ -1,13 +1,9 @@
-import HeroPage from "@/components/HeroPage";
-import { setRequestLocale } from "next-intl/server";
-import type { Locale } from "@/i18n/routing";
+import {getTranslations} from 'next-intl/server';
+import HeroPage from '@/components/HeroPage';
+export default async function HomePage() {
+  const t = await getTranslations('Hero');
+  return (
+    <HeroPage />
+  )
 
-type HomePageProps = {
-  params: { locale: Locale };
-};
-
-export default function HomePage({ params: { locale } }: HomePageProps) {
-  setRequestLocale(locale);
-
-  return <HeroPage />;
 }

@@ -9,7 +9,3 @@ export const routing = defineRouting({
   defaultLocale: 'ja'
 });
 
-export type Locale = (typeof routing.locales)[number];
-
-export const {Link, redirect, usePathname, useRouter, getPathname} =
-  createNavigation(routing);

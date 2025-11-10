@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 export default function RootLayout({ children }: { children: ReactNode }) {
   // keep this minimal; HTML lang is set in your [locale]/layout
   return (
-    <html suppressHydrationWarning>
+    <html lang="" suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );
