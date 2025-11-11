@@ -173,7 +173,7 @@ const HeroPage = () => {
                 {role && (
                   <Button
                     position={'absolute'}
-                    bottom={40}                    
+                    bottom={{base:20, lg:40}}                    
                     variant={'solid'}
                     color='white'
                     px={8}
