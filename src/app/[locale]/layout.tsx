@@ -25,7 +25,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <Provider>
       <NextIntlClientProvider locale={locale} messages={messages}>
-        <div className="max-h-screen flex flex-col">
+        <div className="flex flex-col">
           <Navigation />
           {children}
           <Footer />

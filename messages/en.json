@@ -16,6 +16,20 @@
     "roleCareSeeker": "I'm a Care Seeker",
     "roleVolunteer": "I'm a Volunteer",
     "ctaJoin": "Join",
+    "welcomeText": {
+    "heading": "Welcome to CareMatch Japan",
+    "points": [
+      "We humbly aim to support Japan’s ageing society by connecting neighbors who need a little help with volunteers who wish to serve.",
+      "This web app safely matches small, everyday requests — grocery assistance, clinic escort, light chores, check-ins — with trusted local helpers.",
+      "How to participate (as a helper): create a volunteer profile, complete a simple verification, choose your area and availability, then apply to nearby requests.",
+      "How to request support (as a family or senior): post a request with time and place, review offers from nearby volunteers, and confirm a booking.",
+      "For foreign nationals: the app supports English and simple Japanese. Your kindness, time, and curiosity are welcome. This is a respectful way to contribute to community life in Japan while learning and growing.",
+      "What we value: safety, privacy, punctuality, and warm, patient communication with seniors and families.",
+      "Ways to help: short shopping trips, tidy-up support, friendly walks, ‘I’m OK’ check-ins, and other small acts that make daily life easier.",
+      "Please help us keep the service reliable: use your real name, check in at start/end of visits, and leave short reviews so trust can grow.",
+      "We are a small team and grateful for feedback. If you notice barriers or have ideas, please let us know so we can improve."
+    ]    
+  },
     "aria": {
       "switchToDark": "Switch to dark mode",
       "switchToLight": "Switch to light mode"

@@ -1,7 +1,7 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import Image from "next/image";
-
 import {
   Box,
   Button,
@@ -16,7 +16,8 @@ import {
 } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 import { useColorModeValue } from "./ui/color-mode";
-import { useMemo, useState } from "react";
+import WelcomeSection from "./WelcomeSection";
+
 
 const heroImageSrc = "/assets/heroimage.png";
 
@@ -24,6 +25,7 @@ const HeroPage = () => {
   const t = useTranslations("Hero");
   const pageBg = useColorModeValue("#F2E8E1", "#101c22");
   const pageText = useColorModeValue("#2D2A26", "#F4F4F2");
+  const [disabled, setDisabled] = useState(false);
   const [role, setRole] = useState<string | undefined>(undefined);
   const roleOptions = useMemo(
     () =>
@@ -35,6 +37,10 @@ const HeroPage = () => {
       }),
     [t],
   );
+
+  function handleClick() {
+    setDisabled(true);
+  }
 
   return (
     <Flex
@@ -51,7 +57,7 @@ const HeroPage = () => {
         justifyContent="center"
         py={{ base: 16, md: 20 }}
       >
-        <Container maxW="7xl" px={{ base: 4, md: 6 }}>
+        <Container maxW="7xl" px={{ base: 4, md: 6 }} display={'flex'} flexDirection={'column'} gap={8}>
           <Box
             position="relative"
             w="full"
@@ -167,27 +173,27 @@ const HeroPage = () => {
                 {role && (
                   <Button
                     position={'absolute'}
-                    bottom={40}
-                    w="full"
-                    maxW="120px"
-                    h="48px"
-                    px={4}
-                    py={2}
+                    bottom={40}                    
                     variant={'solid'}
-                    colorPalette={'orange'}
-                    color="white"
+                    color='white'
+                    px={8}
+                    py={4}
+                    colorPalette={'orange'}                    
                     fontSize="md"
                     fontWeight="bold"
                     borderRadius="lg"
                     boxShadow="lg"
-                    transition="transform 0.2s ease-in-out"                   
+                    transition="transform 0.2s ease-in-out" 
+                    onClick={handleClick}
+                    disabled={disabled}                  
                   >
                     {t("ctaJoin")}
                   </Button>
                 )}
               </Stack>
-            </Stack>
-          </Box>
+            </Stack>            
+          </Box>    
+          <WelcomeSection />
         </Container>
       </Box>
     </Flex>
