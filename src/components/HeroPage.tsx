@@ -28,16 +28,7 @@ const HeroPage = () => {
   const [disabled, setDisabled] = useState(false);
   const [role, setRole] = useState<string | undefined>(undefined);
   const r = useRouter();
-  const roleOptions = useMemo(
-    () =>
-      createListCollection({
-        items: [
-          { label: t("roleCareSeeker"), value: "care-seeker" },
-          { label: t("roleVolunteer"), value: "volunteer" },
-        ],
-      }),
-    [t]
-  );
+
 
   function handleClick() {
     setDisabled(true);
@@ -132,57 +123,9 @@ const HeroPage = () => {
                 maxW="md"
                 align="center"
                 justify="center"
-              >
-                <Box w="full" maxW="320px">
-                  <Select.Root
-                    width="100%"
-                    collection={roleOptions}
-                    value={role ? [role] : []}
-                    onValueChange={(details) =>
-                      setRole(details.value[0] ?? undefined)
-                    }
-                    size="sm"
-                  >
-                    <Select.HiddenSelect />
-                    <Select.Label color="orange" fontSize={16}>
-                      {t("roleSelectLabel")}
-                    </Select.Label>
-                    <Select.Control>
-                      <Select.Trigger
-                        borderColor="#E2DDD7"
-                        bg="#0F0F0F"
-                        color="#F5F5F5"
-                        _hover={{
-                          borderColor: "#B7342C",
-                        }}
-                      >
-                        <Select.ValueText
-                          placeholder={t("roleSelectPlaceholder")}
-                        />
-                      </Select.Trigger>
-                      <Select.IndicatorGroup>
-                        <Select.Indicator />
-                      </Select.IndicatorGroup>
-                    </Select.Control>
-                    <Portal>
-                      <Select.Positioner>
-                        <Select.Content bg="#0F0F0F" color="#F5F5F5">
-                          {roleOptions.items.map((option) => (
-                            <Select.Item item={option} key={option.value}>
-                              {option.label}
-                              <Select.ItemIndicator />
-                            </Select.Item>
-                          ))}
-                        </Select.Content>
-                      </Select.Positioner>
-                    </Portal>
-                  </Select.Root>
-                </Box>
+              >             
 
-                {role && (
-                  <Button
-                    position={"absolute"}
-                    bottom={{ base: 20, lg: 40 }}
+                  <Button                    
                     variant={"solid"}
                     color="white"
                     px={8}
@@ -198,7 +141,7 @@ const HeroPage = () => {
                   >
                     {t("ctaJoin")}
                   </Button>
-                )}
+                
               </Stack>
             </Stack>
           </Box>

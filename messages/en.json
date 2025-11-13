@@ -15,7 +15,7 @@
     "roleSelectLabel": "Join community as",
     "roleCareSeeker": "I'm a Care Seeker",
     "roleVolunteer": "I'm a Volunteer",
-    "ctaJoin": "Join",
+    "ctaJoin": "Join Our Community",
     "welcomeText": {
     "heading": "Welcome to CareMatch Japan",
     "points": [
@@ -33,6 +33,18 @@
     "aria": {
       "switchToDark": "Switch to dark mode",
       "switchToLight": "Switch to light mode"
+    }
+  },
+  "SignUp": {
+    "formSelector": {
+      "stepLabel": "Step 1",
+      "title": "Choose your role",
+      "selectLabel": "Select Your Role",
+      "selectPlaceholder": "Select",
+      "seekerLabel": "Care Seeker",
+      "seekerDescription": "Request support for a loved one or yourself.",
+      "giverLabel": "Volunteer Helper",
+      "giverDescription": "Offer time and skills to neighbors nearby."
     }
   },
   "Metadata": {

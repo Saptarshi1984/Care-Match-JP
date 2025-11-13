@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import {
   Box,
+  Button,
   Container,
   Flex,
   IconButton,
@@ -9,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useLocale, useTranslations } from "next-intl";
 import { LuMoon, LuSun } from "react-icons/lu";
-
+import { useRouter } from "next/navigation";
 import { useColorMode, useColorModeValue } from "./ui/color-mode";
 import LanguageSwitch from "./LanguageSwitch";
 import NavLinks from "./NavLinks";
@@ -17,6 +19,7 @@ import NavLinks from "./NavLinks";
 const Navigation = () => {
   const t = useTranslations("Hero");
   const locale = useLocale();
+  const [loading, setLoading] = useState(false);
   const navLinkColor = useColorModeValue("#2D2A26", "white");
   const navLinkHoverColor = useColorModeValue("#B7342C", "#87CEEB");
   const toggleHoverBg = useColorModeValue("rgba(0,0,0,0.06)", "whiteAlpha.200");
@@ -24,8 +27,10 @@ const Navigation = () => {
 
   const colorToggleLabel = useColorModeValue(
     t("aria.switchToDark"),
-    t("aria.switchToLight"),
+    t("aria.switchToLight")
   );
+
+  const r = useRouter();
 
   return (
     <Box
@@ -52,6 +57,15 @@ const Navigation = () => {
           <NavLinks />
           <Flex align="center" gap={{ base: 2, md: 6 }}>
             <Flex align="center" gap={3}>
+              <Button 
+              variant="outline" 
+              colorPalette="orange" 
+              fontWeight="bold"
+              onClick={() => {setLoading(true); r.replace("/SignIn"); setLoading(false);} }
+              loading={loading}
+              >
+                Sign In
+              </Button>
               <IconButton
                 aria-label={colorToggleLabel}
                 onClick={toggleColorMode}
@@ -63,7 +77,7 @@ const Navigation = () => {
                 {colorMode === "light" ? <LuSun /> : <LuMoon />}
               </IconButton>
             </Flex>
-            <LanguageSwitch lang={locale as "en" | "ja"} />            
+            <LanguageSwitch lang={locale as "en" | "ja"} />
           </Flex>
         </Flex>
       </Container>

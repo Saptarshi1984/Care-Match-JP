@@ -1,6 +1,5 @@
 "use client";
 
-import { useCallback } from "react";
 import NextLink from "next/link";
 import {
   Box,
@@ -81,7 +80,7 @@ export default function SignInPage() {
                 _active={{ filter: "brightness(0.95)" }}
                 color="white"
               >
-                <Stack align="flex-start">
+                <Stack align="flex-start">                  
                   <Text>{provider.label}</Text>
                 </Stack>
               </Button>
@@ -98,7 +97,7 @@ export default function SignInPage() {
                   as={NextLink}
                   href="/SignUp"
                   color="orange.400"
-                  fontWeight="600"
+                  fontWeight="600"                  
                 >
                   Sign Up
                 </Link>
