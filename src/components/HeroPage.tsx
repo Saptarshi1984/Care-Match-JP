@@ -32,7 +32,7 @@ const HeroPage = () => {
 
   function handleClick() {
     setDisabled(true);
-    r.replace("./SignIn");
+    r.replace("/SignUp");
     setDisabled(false);
   }
 
