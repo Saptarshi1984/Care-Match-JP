@@ -17,19 +17,19 @@
     "roleVolunteer": "I'm a Volunteer",
     "ctaJoin": "Join Our Community",
     "welcomeText": {
-    "heading": "Welcome to CareMatch Japan",
-    "points": [
-      "We humbly aim to support Japan’s ageing society by connecting neighbors who need a little help with volunteers who wish to serve.",
-      "This web app safely matches small, everyday requests — grocery assistance, clinic escort, light chores, check-ins — with trusted local helpers.",
-      "How to participate (as a helper): create a volunteer profile, complete a simple verification, choose your area and availability, then apply to nearby requests.",
-      "How to request support (as a family or senior): post a request with time and place, review offers from nearby volunteers, and confirm a booking.",
-      "For foreign nationals: the app supports English and simple Japanese. Your kindness, time, and curiosity are welcome. This is a respectful way to contribute to community life in Japan while learning and growing.",
-      "What we value: safety, privacy, punctuality, and warm, patient communication with seniors and families.",
-      "Ways to help: short shopping trips, tidy-up support, friendly walks, ‘I’m OK’ check-ins, and other small acts that make daily life easier.",
-      "Please help us keep the service reliable: use your real name, check in at start/end of visits, and leave short reviews so trust can grow.",
-      "We are a small team and grateful for feedback. If you notice barriers or have ideas, please let us know so we can improve."
-    ]    
-  },
+      "heading": "Welcome to CareMatch Japan",
+      "points": [
+        "We humbly aim to support Japan\u00e2\u20ac\u2122s ageing society by connecting neighbors who need a little help with volunteers who wish to serve.",
+        "This web app safely matches small, everyday requests \u00e2\u20ac\u201d grocery assistance, clinic escort, light chores, check-ins \u00e2\u20ac\u201d with trusted local helpers.",
+        "How to participate (as a helper): create a volunteer profile, complete a simple verification, choose your area and availability, then apply to nearby requests.",
+        "How to request support (as a family or senior): post a request with time and place, review offers from nearby volunteers, and confirm a booking.",
+        "For foreign nationals: the app supports English and simple Japanese. Your kindness, time, and curiosity are welcome. This is a respectful way to contribute to community life in Japan while learning and growing.",
+        "What we value: safety, privacy, punctuality, and warm, patient communication with seniors and families.",
+        "Ways to help: short shopping trips, tidy-up support, friendly walks, \u00e2\u20ac\u02dcI\u00e2\u20ac\u2122m OK\u00e2\u20ac\u2122 check-ins, and other small acts that make daily life easier.",
+        "Please help us keep the service reliable: use your real name, check in at start/end of visits, and leave short reviews so trust can grow.",
+        "We are a small team and grateful for feedback. If you notice barriers or have ideas, please let us know so we can improve."
+      ]
+    },
     "aria": {
       "switchToDark": "Switch to dark mode",
       "switchToLight": "Switch to light mode"
@@ -41,11 +41,61 @@
       "title": "Choose your role",
       "selectLabel": "Select Your Role",
       "selectPlaceholder": "Select",
-      "seekerLabel": "Care Seeker",
+      "seekerLabel": "CARE SEEKER",
       "seekerDescription": "Request support for a loved one or yourself.",
-      "giverLabel": "Volunteer Helper",
+      "giverLabel": "CARE GIVER",
       "giverDescription": "Offer time and skills to neighbors nearby."
+    },
+    "page": {
+      "title": "Create your profile",
+      "subtitle": "Let us know how you would like to participate in CareMatch Japan."
     }
+  },
+  "SeekerForm": {
+    "header": {
+      "title": "Tell us about your care needs",
+      "subtitle": "A concierge will review this information to match you with trusted helpers nearby."
+    },
+    "sections": {
+      "personalInfo": "Personal information",
+      "contactDetails": "Contact details",
+      "supportNeeded": "Support needed"
+    },
+    "fields": {
+      "firstName": {
+        "label": "First name",
+        "placeholder": "Taro"
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "Tanaka"
+      },
+      "age": {
+        "label": "Age",
+        "placeholder": "60"
+      },
+      "address": {
+        "label": "Address",
+        "placeholder": "2-1-1 Toyosu, Koto City, Tokyo"
+      },
+      "contactNo": {
+        "label": "Contact number",
+        "placeholder": "+81-90-1234-5678"
+      }
+    },
+    "supportOptions": {
+      "shopping": "Shopping support",
+      "clinic_escort": "Clinic escort",
+      "meal_prep": "Meal preparation",
+      "companionship": "Friendly visit",
+      "light_cleaning": "Light cleaning"
+    },
+    "cta": {
+      "submit": "Create account",
+      "submitting": "Submitting..."
+    },
+    "helperText": "Submitting your profile lets CareMatch ambassadors reach out with next steps via phone or email.",
+    "ariaLabel": "Care seeker profile form"
   },
   "Metadata": {
     "title": "CareMatch Japan",

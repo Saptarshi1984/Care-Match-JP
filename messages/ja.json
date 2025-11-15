@@ -46,6 +46,10 @@
       "giverDescription": "近隣の方に時間とスキルを提供します。",
       "selectLabel": "役割を選択してください",
       "selectPlaceholder": "選択"
+    },
+    "page": {
+      "title": "プロフィールを作成",
+      "subtitle": "CareMatch Japanへの参加方法を教えてください。"
     }
   },
   "Metadata": {
@@ -61,5 +65,51 @@
       "privacy": "プライバシー"
     },
     "copyright": "© 2025 ケアマッチ・ジャパン. All rights reserved."
+  },
+  "SeekerForm": {
+    "header": {
+      "title": "必要なサポート内容を教えてください",
+      "subtitle": "入力内容を確認し、近くの信頼できるサポーターをご紹介します。"
+    },
+    "sections": {
+      "personalInfo": "ご本人さまについて",
+      "contactDetails": "連絡先",
+      "supportNeeded": "希望するサポート"
+    },
+    "fields": {
+      "firstName": {
+        "label": "名（ファーストネーム）",
+        "placeholder": "太郎"
+      },
+      "lastName": {
+        "label": "姓（ラストネーム）",
+        "placeholder": "田中"
+      },
+      "age": {
+        "label": "年齢",
+        "placeholder": "60"
+      },
+      "address": {
+        "label": "住所",
+        "placeholder": "東京都江東区豊洲2-1-1"
+      },
+      "contactNo": {
+        "label": "連絡先（電話番号）",
+        "placeholder": "+81-90-1234-5678"
+      }
+    },
+    "supportOptions": {
+      "shopping": "買い物サポート",
+      "clinic_escort": "通院付き添い",
+      "meal_prep": "食事づくり",
+      "companionship": "話し相手・見守り",
+      "light_cleaning": "簡単な掃除"
+    },
+    "cta": {
+      "submit": "アカウント作成",
+      "submitting": "送信中..."
+    },
+    "helperText": "送信後、ケアマッチのアンバサダーが電話またはメールで今後の流れをご案内します。",
+    "ariaLabel": "ケア依頼者プロフィールフォーム"
   }
 }

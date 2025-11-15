@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import {
@@ -9,11 +9,8 @@ import {
   Container,
   Flex,
   Heading,
-  Portal,
-  Select,
   Stack,
   Text,
-  createListCollection,
 } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 import { useColorModeValue } from "./ui/color-mode";
@@ -26,7 +23,6 @@ const HeroPage = () => {
   const pageBg = useColorModeValue("#F2E8E1", "#101c22");
   const pageText = useColorModeValue("#2D2A26", "#F4F4F2");
   const [disabled, setDisabled] = useState(false);
-  const [role, setRole] = useState<string | undefined>(undefined);
   const r = useRouter();
 
 

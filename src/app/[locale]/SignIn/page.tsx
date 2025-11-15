@@ -28,12 +28,12 @@ const oauthProviders: Array<{
 }> = [
   {
     id: "line",
-    label: "Sign in with LINE",
+    label: "Sign In with LINE",
     accent: "#06C755",
   },
   {
     id: "google",
-    label: "Sign in with Google",
+    label: "Sign In with Gmail",
     accent: "#4285F4",
   },
 ];
@@ -71,14 +71,14 @@ export default function SignInPage() {
             {oauthProviders.map((provider) => (
               <Button
                 key={provider.id}
-                size="lg"
+                size="xl"
                 fontWeight="600"
                 gap={4}
                 borderRadius="md"
                 bg={provider.accent}
                 _hover={{ filter: "brightness(1.05)" }}
                 _active={{ filter: "brightness(0.95)" }}
-                color="white"
+                color="white"                
               >
                 <Stack align="flex-start">                  
                   <Text>{provider.label}</Text>

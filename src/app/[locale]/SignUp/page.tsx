@@ -9,10 +9,11 @@ import {
   Select,
   createListCollection,
   Portal,
+  Separator
 } from "@chakra-ui/react";
-import FormSelector from "@/components/signup/FormSelector";
 import { useColorModeValue } from "@/components/ui/color-mode";
 import { useTranslations } from "next-intl";
+import SeekerProfileForm from "@/components/signup/SeekerProfileForm";
 
 const ROLE_ITEMS = [
   { labelKey: "seekerLabel", value: "care-seeker" },
@@ -23,16 +24,20 @@ export default function SignUpPage() {
   const pageBg = useColorModeValue("#F7F3EF", "#050E12");
   const cardBg = useColorModeValue("#ffffff", "#0f1a1f");
   const muted = useColorModeValue("gray.600", "gray.300");
-  const t = useTranslations("SignUp.formSelector");
+  const roleCardBg = useColorModeValue("rgba(15,23,42,0.04)", "rgba(15,23,42,0.7)");
+  const roleCardBorder = useColorModeValue("rgba(15,23,42,0.08)", "rgba(148,163,184,0.3)");
+  const roleTextColor = useColorModeValue("gray.800", "gray.100");
+  const selectorT = useTranslations("SignUp.formSelector");
+  const pageT = useTranslations("SignUp.page");
   const roles = useMemo(
     () =>
       createListCollection({
         items: ROLE_ITEMS.map((role) => ({
           value: role.value,
-          label: t(role.labelKey),
+          label: selectorT(role.labelKey),
         })),
       }),
-    [t]
+    [selectorT]
   );
 
   return (
@@ -45,6 +50,7 @@ export default function SignUpPage() {
     >
       <Flex
         w="full"
+        gap={6}
         flexDirection={'column'}
         maxW="960px"
         bg={cardBg}
@@ -53,23 +59,45 @@ export default function SignUpPage() {
         px={{ base: 4, md: 8 }}
         py={{ base: 6, md: 10 }}
       >
-        <Box pb={4}>
-          <Stack gap={2} textAlign="center">
+        <Box pb={4} display='flex' direction='column' mx={'auto'}>
+          <Stack gap={4} textAlign="center">
             <Heading fontSize={{ base: "2xl", md: "3xl" }}>
-              Create your profile
+              {pageT("title")}
             </Heading>
             <Text color={muted} fontSize="md">
-              Let us know how you would like to participate in CareMatch Japan.
+              {pageT("subtitle")}
             </Text>
           </Stack>
         </Box>
-        <Box pb={8} display="flex" justifyContent="center">
-          <Select.Root collection={roles} size="sm" width="320px">
+        <Box
+          borderRadius="2xl"
+          border="1px solid"
+          borderColor={roleCardBorder}
+          bg={roleCardBg}
+          px={{ base: 4, md: 6 }}
+          py={{ base: 6, md: 8 }}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          gap={3}
+          shadow="xl"
+        >
+          <Heading
+            fontSize="lg"
+            color={roleTextColor}
+            textAlign="center"
+          >
+            {selectorT("title")}
+          </Heading>
+          <Text color={muted} fontSize="sm" textAlign="center">
+            {selectorT("selectLabel")}
+          </Text>
+          <Select.Root collection={roles} size="md" width={{ base: "100%", sm: "320px" }}>
             <Select.HiddenSelect />
-            <Select.Label>{t("selectLabel")}</Select.Label>
+            <Select.Label srOnly>{selectorT("selectLabel")}</Select.Label>
             <Select.Control>
               <Select.Trigger>
-                <Select.ValueText placeholder={t("selectPlaceholder")} />
+                <Select.ValueText fontSize="md" color={roleTextColor} placeholder={selectorT("selectPlaceholder")} />
               </Select.Trigger>
               <Select.IndicatorGroup>
                 <Select.Indicator />
@@ -89,14 +117,8 @@ export default function SignUpPage() {
             </Portal>
           </Select.Root>
         </Box>
-        <Box>
-          <Stack gap={10}>            
-            <Text fontSize="sm" color={muted} textAlign="center">
-              We keep your information private and only share it with verified
-              members for matching purposes.
-            </Text>
-          </Stack>
-        </Box>
+        <Separator />
+        <SeekerProfileForm />        
       </Flex>
     </Flex>
   );
