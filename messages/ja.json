@@ -1,4 +1,4 @@
-{
+﻿{
   "Hero": {
     "brandTitle": "ケアマッチ・ジャパン",
     "heroTitle": "日本中のケアを必要とする人とボランティアをつなぎます",
@@ -39,7 +39,7 @@
   "SignUp": {
     "formSelector": {
       "stepLabel": "ステップ1",
-      "title": "参加方法を選択してください",
+      "title": "参加する役割を選んでください",
       "seekerLabel": "ケアを受けたい方",
       "seekerDescription": "ご自身やご家族のサポートを依頼します。",
       "giverLabel": "ボランティアサポーター",
@@ -53,7 +53,7 @@
     }
   },
   "Metadata": {
-    "title": "ケアマッチ・ジャパン",
+    "title": "CareMatch Japan",
     "description": "ケアが必要な家族と思いやりのあるボランティアをつなげます。"
   },
   "Footer": {
@@ -68,7 +68,7 @@
   },
   "SeekerForm": {
     "header": {
-      "title": "必要なサポート内容を教えてください",
+      "title": "ケアシーカー登録フォーム",
       "subtitle": "入力内容を確認し、近くの信頼できるサポーターをご紹介します。"
     },
     "sections": {
@@ -111,5 +111,72 @@
     },
     "helperText": "送信後、ケアマッチのアンバサダーが電話またはメールで今後の流れをご案内します。",
     "ariaLabel": "ケア依頼者プロフィールフォーム"
+  },
+  "GiverForm": {
+    "header": {
+      "title": "ケアギバー登録フォーム",
+      "subtitle": "提供できるスキルと時間帯を入力すると、近くのケアシーカーとマッチしやすくなります。"
+    },
+    "sections": {
+      "serviceArea": "対応エリア",
+      "skills": "提供できるサポート",
+      "availability": "対応できる時間帯",
+      "profile": "プロフィール",
+      "personalInfo": "個人情報",
+      "contactDetails": "連絡先"
+    },
+    "fields": {
+      "serviceRadius": {
+        "label": "移動できる距離（km）",
+        "helper": "自宅から何kmまで移動できますか"
+      },
+      "intro": {
+        "label": "自己紹介（短く）",
+        "placeholder": "近所の方々のお手伝いをしたいです。"
+      },
+      "vetted": {
+        "label": "CareMatchのバックグラウンド確認を完了しています"
+      },
+      "firstName": {
+        "label": "名（ローマ字）",
+        "placeholder": "Taro"
+      },
+      "lastName": {
+        "label": "姓（ローマ字）",
+        "placeholder": "Tanaka"
+      },
+      "age": {
+        "label": "年齢",
+        "placeholder": "35"
+      },
+      "address": {
+        "label": "住所",
+        "placeholder": "東京都江東区豊洲2-1-1"
+      },
+      "contactNo": {
+        "label": "連絡先（電話など）",
+        "placeholder": "+81-90-1234-5678"
+      }
+    },
+    "skills": {
+      "shopping": "買い物サポート",
+      "walk": "散歩・付き添い",
+      "meal_prep": "食事の準備",
+      "tech_help": "スマホ/PCサポート",
+      "chat": "お話相手"
+    },
+    "availabilityOptions": {
+      "weekday_morning": "平日 午前",
+      "weekday_afternoon": "平日 午後",
+      "weekday_evening": "平日 夕方・夜",
+      "weekend_morning": "週末 午前",
+      "weekend_afternoon": "週末 午後"
+    },
+    "helperText": "入力内容はマッチングにのみ使用され、あとから変更できます。",
+    "cta": {
+      "submit": "ケアギバー登録をする",
+      "submitting": "送信中..."
+    },
+    "ariaLabel": "ケアギバーのプロフィールフォーム"
   }
 }

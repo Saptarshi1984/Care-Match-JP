@@ -9,7 +9,7 @@ import { useColorModeValue } from "./ui/color-mode";
 const NavLinks = () => {
   const t = useTranslations("Hero");
   const navLinkColor = useColorModeValue("#333333", "white");
-  const navLinkHoverColor = useColorModeValue("#2C5282", "#87CEEB");
+  const navLinkHoverColor = useColorModeValue("orange", "orange");
 
   const navLinks = [
     { href: "#", label: t("nav.home") },

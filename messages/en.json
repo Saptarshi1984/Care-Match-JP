@@ -51,9 +51,76 @@
       "subtitle": "Let us know how you would like to participate in CareMatch Japan."
     }
   },
+  "GiverForm": {
+    "header": {
+      "title": "Care Giver Registration Form",
+      "subtitle": "Share your skills and availability so we can match you with nearby care seekers."
+    },
+    "sections": {
+      "personalInfo": "Personal information",
+      "contactDetails": "Contact details",
+      "serviceArea": "Service area",
+      "skills": "Skills you offer",
+      "availability": "Availability",
+      "profile": "Profile"
+    },
+    "fields": {
+      "firstName": {
+        "label": "First name",
+        "placeholder": "Taro"
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "Tanaka"
+      },
+      "age": {
+        "label": "Age",
+        "placeholder": "35"
+      },
+      "address": {
+        "label": "Address",
+        "placeholder": "2-1-1 Toyosu, Koto City, Tokyo"
+      },
+      "contactNo": {
+        "label": "Contact number",
+        "placeholder": "+81-90-1234-5678"
+      },
+      "serviceRadius": {
+        "label": "Service radius (km)",
+        "helper": "How far from home you are willing to travel."
+      },
+      "intro": {
+        "label": "Short introduction",
+        "placeholder": "Happy to help neighbors nearby..."
+      },
+      "vetted": {
+        "label": "I have completed CareMatch background screening"
+      }
+    },
+    "skills": {
+      "shopping": "Shopping support",
+      "walk": "Walks / escort",
+      "meal_prep": "Meal preparation",
+      "tech_help": "Tech help",
+      "chat": "Friendly chat"
+    },
+    "availabilityOptions": {
+      "weekday_morning": "Weekday morning",
+      "weekday_afternoon": "Weekday afternoon",
+      "weekday_evening": "Weekday evening",
+      "weekend_morning": "Weekend morning",
+      "weekend_afternoon": "Weekend afternoon"
+    },
+    "helperText": "Your profile helps us suggest matches faster. You can update these details anytime.",
+    "cta": {
+      "submit": "Create Giver account",
+      "submitting": "Submitting..."
+    },
+    "ariaLabel": "Care giver profile form"
+  },
   "SeekerForm": {
     "header": {
-      "title": "Tell us about your care needs",
+      "title": "Care Seeker Registration Form",
       "subtitle": "A concierge will review this information to match you with trusted helpers nearby."
     },
     "sections": {

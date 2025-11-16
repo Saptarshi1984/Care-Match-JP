@@ -268,7 +268,7 @@ export default function SeekerProfileForm() {
                 id="seeker-age"
                 name="age"
                 type="number"
-                min={18}
+                min={60}
                 max={120}
                 placeholder={t("fields.age.placeholder")}
                 value={formData.age === 0 ? "" : formData.age}
@@ -384,7 +384,7 @@ export default function SeekerProfileForm() {
         </section>
 
         <section style={cardStyles}>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 items-center">
             <p className="m-0 color-[helperTextColor]">{t("helperText")}</p>
             <button
               className="w-50 m-auto p-4! font-bold! rounded-4xl"
