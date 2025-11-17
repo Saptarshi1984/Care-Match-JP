@@ -13,10 +13,11 @@ import {
   Link,
   Stack,
   Text,
+  IconButton,
 } from "@chakra-ui/react";
 import { useColorModeValue } from "@/components/ui/color-mode";
 import type { IconType } from "react-icons";
-import { FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import { SiLine } from "react-icons/si";
 
 type OAuthProvider = "google" | "line";
@@ -25,16 +26,22 @@ const oauthProviders: Array<{
   id: OAuthProvider;
   label: string;
   accent: string;
+  textColor:string;
+  icon: IconType;
 }> = [
   {
     id: "line",
     label: "Sign In with LINE",
     accent: "#06C755",
+    textColor:"gray.300",
+    icon: SiLine,
   },
   {
     id: "google",
     label: "Sign In with Gmail",
-    accent: "#4285F4",
+    accent: "white",
+    textColor:"gray.900",
+    icon: FcGoogle,
   },
 ];
 
@@ -69,21 +76,23 @@ export default function SignInPage() {
         <CardBody pt={0}>
           <Stack gap={4}>
             {oauthProviders.map((provider) => (
-              <Button
+              <IconButton
+                variant={'solid'}
                 key={provider.id}
                 size="xl"
                 fontWeight="600"
+                aria-label={provider.label}
                 gap={4}
                 borderRadius="md"
                 bg={provider.accent}
-                _hover={{ filter: "brightness(1.05)" }}
+                _hover={{ filter: "brightness(0.85)" }}
                 _active={{ filter: "brightness(0.95)" }}
-                color="white"                
               >
-                <Stack align="flex-start">                  
-                  <Text>{provider.label}</Text>
+                <provider.icon size="xl" />
+                <Stack align="flex-start">
+                  <Text color={provider.textColor}>{provider.label}</Text>
                 </Stack>
-              </Button>
+              </IconButton>
             ))}
             <Separator />
             <Text fontSize="xs" color={subtextColor} textAlign="center">
@@ -97,7 +106,7 @@ export default function SignInPage() {
                   as={NextLink}
                   href="/SignUp"
                   color="orange.400"
-                  fontWeight="600"                  
+                  fontWeight="600"
                 >
                   Sign Up
                 </Link>

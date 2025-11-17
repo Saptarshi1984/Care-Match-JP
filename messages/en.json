@@ -113,7 +113,7 @@
     },
     "helperText": "Your profile helps us suggest matches faster. You can update these details anytime.",
     "cta": {
-      "submit": "Create Giver account",
+      "submit": "Create Account",
       "submitting": "Submitting..."
     },
     "ariaLabel": "Care giver profile form"
@@ -163,7 +163,7 @@
       "light_cleaning": "Light cleaning"
     },
     "cta": {
-      "submit": "Create account",
+      "submit": "Create Account",
       "submitting": "Submitting..."
     },
     "helperText": "Submitting your profile lets CareMatch ambassadors reach out with next steps via phone or email.",
