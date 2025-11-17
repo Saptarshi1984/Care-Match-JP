@@ -1,8 +1,8 @@
-"use client";
 
-import { ChangeEvent, FormEvent, useMemo, useState } from "react";
+"use client";
+import { FormEvent, useMemo, useState } from "react";
 import { useColorModeValue } from "@/components/ui/color-mode";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export type SeekerProfileData = {
   firstName: string;
@@ -10,16 +10,8 @@ export type SeekerProfileData = {
   age: number;
   address: string;
   contactNo: string;
-  supportFor: string[];
+  intro: string;
 };
-
-const SUPPORT_OPTIONS = [
-  "shopping",
-  "clinic_escort",
-  "meal_prep",
-  "companionship",
-  "light_cleaning",
-] as const;
 
 const SUBMIT_ENDPOINT = "/api/signup/seeker";
 
@@ -29,15 +21,18 @@ const DEFAULT_SEEKER: SeekerProfileData = {
   age: 0,
   address: "",
   contactNo: "",
-  supportFor: [],
+  intro: "",
 };
 
 const createInitialFormState = (): SeekerProfileData => ({
   ...DEFAULT_SEEKER,
-  supportFor: [...DEFAULT_SEEKER.supportFor],
 });
 
-export default function SeekerProfileForm() {
+export type SeekerProfileFormProps = {
+  locale?: string;
+};
+
+export default function SeekerProfileForm({ locale: localeProp }: SeekerProfileFormProps = {}) {
   const [formData, setFormData] = useState<SeekerProfileData>(() =>
     createInitialFormState()
   );
@@ -47,6 +42,7 @@ export default function SeekerProfileForm() {
     text: string | null;
   }>({ type: null, text: null });
   const t = useTranslations("SeekerForm");
+  const locale = localeProp ?? useLocale();
 
   const titleColor = useColorModeValue("#0f172a", "#f8fafc");
   const bodyTextColor = useColorModeValue("#0f172a", "#e2e8f0");
@@ -71,16 +67,6 @@ export default function SeekerProfileForm() {
   const inputBackground = useColorModeValue("#ffffff", "rgba(15,23,42,0.65)");
   const inputTextColor = useColorModeValue("#0f172a", "#f8fafc");
   const helperTextColor = bodyTextColor;
-  const supportActiveBorder = useColorModeValue("#0f172a", "#cbd5f5");
-  const supportInactiveBorder = useColorModeValue(
-    "rgba(15,23,42,0.15)",
-    "rgba(148,163,184,0.35)"
-  );
-  const supportActiveBg = useColorModeValue(
-    "rgba(15,23,42,0.04)",
-    "rgba(148,163,184,0.15)"
-  );
-  const supportInactiveBg = useColorModeValue("#ffffff", "rgba(15,23,42,0.7)");
   const buttonGradient = useColorModeValue(
     "linear-gradient(120deg, #111827, #0f172a 60%, #334155)",
     "linear-gradient(120deg, #e2e8f0, #cbd5f5 60%, #94a3b8)"
@@ -135,16 +121,6 @@ export default function SeekerProfileForm() {
     next: SeekerProfileData[keyof SeekerProfileData]
   ) => {
     setFormData((prev) => ({ ...prev, [field]: next }));
-  };
-
-  const handleSupportChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { checked, value: supportType } = event.target;
-    setFormData((prev) => {
-      const nextSupports = checked
-        ? [...new Set([...prev.supportFor, supportType])]
-        : prev.supportFor.filter((item) => item !== supportType);
-      return { ...prev, supportFor: nextSupports };
-    });
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -219,6 +195,7 @@ export default function SeekerProfileForm() {
           gap: "1.25rem",
           width: "100%",
         }}
+        lang={locale}
         onSubmit={handleSubmit}
       >
         <section style={cardStyles}>
@@ -235,6 +212,7 @@ export default function SeekerProfileForm() {
             <label className="form-field">
               <span style={labelStyle}>{t("fields.firstName.label")}</span>
               <input
+                lang={locale}                               
                 id="seeker-first-name"
                 name="firstName"
                 type="text"
@@ -250,6 +228,7 @@ export default function SeekerProfileForm() {
             <label className="form-field">
               <span style={labelStyle}>{t("fields.lastName.label")}</span>
               <input
+                lang={locale}
                 id="seeker-last-name"
                 name="lastName"
                 type="text"
@@ -264,7 +243,7 @@ export default function SeekerProfileForm() {
             </label>
             <label className="form-field">
               <span style={labelStyle}>{t("fields.age.label")}</span>
-              <input
+              <input                
                 id="seeker-age"
                 name="age"
                 type="number"
@@ -301,6 +280,7 @@ export default function SeekerProfileForm() {
             <label className="form-field">
               <span style={labelStyle}>{t("fields.address.label")}</span>
               <textarea
+                lang={locale}
                 id="seeker-address"
                 name="address"
                 placeholder={t("fields.address.placeholder")}
@@ -334,52 +314,26 @@ export default function SeekerProfileForm() {
           </div>
         </section>
 
-        <section style={cardStyles}>
-          <p
-            style={{
-              fontSize: "0.95rem",
-              fontWeight: 600,
-              marginBottom: "1rem",
-            }}
-          >
-            {t("sections.supportNeeded")}
-          </p>
-          <div
-            className="checkbox-grid"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-              gap: "0.75rem",
-            }}
-          >
-            {SUPPORT_OPTIONS.map((option) => (
-              <label
-                key={option}
-                className="checkbox-option"
+        <section style={cardStyles}>          
+          <div className="flex flex-col gap-4">
+            <label className="form-field">
+              <span style={labelStyle}>{t("fields.intro.label")}</span>
+              <textarea
+                id="seeker-intro"
+                name="intro"
+                lang={locale}
+                placeholder={t("fields.intro.placeholder")}
+                value={formData.intro}
+                onChange={(event) => updateField("intro", event.target.value)}
+                rows={3}
                 style={{
-                  borderRadius: "0.85rem",
-                  border: formData.supportFor.includes(option)
-                    ? `1px solid ${supportActiveBorder}`
-                    : `1px solid ${supportInactiveBorder}`,
-                  padding: "0.75rem 0.85rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.45rem",
-                  backgroundColor: formData.supportFor.includes(option)
-                    ? supportActiveBg
-                    : supportInactiveBg,
-                  transition: "border-color 0.2s, background-color 0.2s",
+                  ...inputStyle,
+                  resize: "vertical",
+                  minHeight: "120px",
                 }}
-              >
-                <input
-                  type="checkbox"
-                  value={option}
-                  checked={formData.supportFor.includes(option)}
-                  onChange={handleSupportChange}
-                />
-                <span>{t(`supportOptions.${option}`)}</span>
-              </label>
-            ))}
+                required
+              />
+            </label>
           </div>
         </section>
 

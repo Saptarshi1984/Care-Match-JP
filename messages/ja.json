@@ -1,182 +1,187 @@
 ﻿{
-  "Hero": {
-    "brandTitle": "ケアマッチ・ジャパン",
-    "heroTitle": "日本中のケアを必要とする人とボランティアをつなぎます",
-    "heroSubtitle": "ケアマッチ・ジャパンは、家族が介護のニーズを共有し、地域の思いやりあるボランティアとつながるお手伝いをします。",
-    "postNeedLabel": "支援を投稿する",
-    "joinVolunteerLabel": "ボランティアとして参加",
-    "imageAlt": "あたたかい雰囲気の日本の多世代コミュニティが屋外で楽しそうに交流している様子。",
-    "nav": {
-      "home": "ホーム",
-      "about": "私たちについて",
-      "contact": "お問い合わせ"
-    },
-    "aria": {
-      "switchToDark": "ダークモードに切り替える",
-      "switchToLight": "ライトモードに切り替える",
-      "switchLanguage": "言語を切り替える"
-    },
-    "roleSelectPlaceholder": "選択してください",
-    "roleCareSeeker": "介護サポートを探しています",
-    "roleVolunteer": "ボランティアとして参加します",
-    "ctaJoin": "コミュニティに参加する",
-    "roleSelectLabel": "参加する役割",
-    "welcomeText": {
-      "heading": "ようこそ、ケアマッチJPへ",
-      "points": [
-        "私たちは、日本の高齢社会を支えるために、助けを必要とする方と、お手伝いしたい方をつなぐ小さなサービスです。",
-        "買い物の付き添い・通院の同行・ちょっとした家事・見守りなど、日常の小さな依頼を、近くの信頼できるボランティアと安全にマッチングします。",
-        "参加方法（支える側）: ボランティア登録 → かんたんな確認 → エリア・時間を設定 → 近くの依頼に応募。",
-        "参加方法（支えを受ける側）: 依頼を作成 → 希望日時と場所を入力 → 近くの登録者からの提案を選び、予約を確定。",
-        "外国籍の方へ: 英語と“やさしい日本語”に対応しています。少しの言葉でも大丈夫です。地域に貢献しながら、日本での生活やマナーも学べます。",
-        "大切にしていること: 安全・プライバシー・時間厳守・高齢者やご家族へのやさしく丁寧なコミュニケーション。",
-        "できる支援: 短時間の買い物、片付けのお手伝い、散歩の付き添い、安否確認の声かけ など、日々の小さな支え。",
-        "お願い: 実名でのやり取り、開始／終了のチェックイン、短いレビューの記入にご協力ください。信頼の輪が広がります。",
-        "私たちは小さなチームです。ご意見や「ここが使いにくい」という点があれば、ぜひ教えてください。改善に努めます。"
-      ]
-    }
-  },
-  "SignUp": {
-    "formSelector": {
-      "stepLabel": "ステップ1",
-      "title": "参加する役割を選んでください",
-      "seekerLabel": "ケアを受けたい方",
-      "seekerDescription": "ご自身やご家族のサポートを依頼します。",
-      "giverLabel": "ボランティアサポーター",
-      "giverDescription": "近隣の方に時間とスキルを提供します。",
-      "selectLabel": "役割を選択してください",
-      "selectPlaceholder": "選択"
-    },
-    "page": {
-      "title": "プロフィールを作成",
-      "subtitle": "CareMatch Japanへの参加方法を教えてください。"
-    }
-  },
-  "Metadata": {
-    "title": "CareMatch Japan",
-    "description": "ケアが必要な家族と思いやりのあるボランティアをつなげます。"
-  },
-  "Footer": {
-    "brand": "ケアマッチ・ジャパン",
-    "links": {
-      "home": "ホーム",
-      "about": "私たちについて",
-      "contact": "お問い合わせ",
-      "privacy": "プライバシー"
-    },
-    "copyright": "© 2025 ケアマッチ・ジャパン. All rights reserved."
-  },
-  "SeekerForm": {
-    "header": {
-      "title": "ケアシーカー登録フォーム",
-      "subtitle": "入力内容を確認し、近くの信頼できるサポーターをご紹介します。"
-    },
-    "sections": {
-      "personalInfo": "ご本人さまについて",
-      "contactDetails": "連絡先",
-      "supportNeeded": "希望するサポート"
-    },
-    "fields": {
-      "firstName": {
-        "label": "名（ファーストネーム）",
-        "placeholder": "太郎"
-      },
-      "lastName": {
-        "label": "姓（ラストネーム）",
-        "placeholder": "田中"
-      },
-      "age": {
-        "label": "年齢",
-        "placeholder": "60"
-      },
-      "address": {
-        "label": "住所",
-        "placeholder": "東京都江東区豊洲2-1-1"
-      },
-      "contactNo": {
-        "label": "連絡先（電話番号）",
-        "placeholder": "+81-90-1234-5678"
-      }
-    },
-    "supportOptions": {
-      "shopping": "買い物サポート",
-      "clinic_escort": "通院付き添い",
-      "meal_prep": "食事づくり",
-      "companionship": "話し相手・見守り",
-      "light_cleaning": "簡単な掃除"
-    },
-    "cta": {
-      "submit": "アカウント作成",
-      "submitting": "送信中..."
-    },
-    "helperText": "送信後、ケアマッチのアンバサダーが電話またはメールで今後の流れをご案内します。",
-    "ariaLabel": "ケア依頼者プロフィールフォーム"
-  },
-  "GiverForm": {
-    "header": {
-      "title": "ケアギバー登録フォーム",
-      "subtitle": "提供できるスキルと時間帯を入力すると、近くのケアシーカーとマッチしやすくなります。"
-    },
-    "sections": {
-      "serviceArea": "対応エリア",
-      "skills": "提供できるサポート",
-      "availability": "対応できる時間帯",
-      "profile": "プロフィール",
-      "personalInfo": "個人情報",
-      "contactDetails": "連絡先"
-    },
-    "fields": {
-      "serviceRadius": {
-        "label": "移動できる距離（km）",
-        "helper": "自宅から何kmまで移動できますか"
-      },
-      "intro": {
-        "label": "自己紹介（短く）",
-        "placeholder": "近所の方々のお手伝いをしたいです。"
-      },
-      "vetted": {
-        "label": "CareMatchのバックグラウンド確認を完了しています"
-      },
-      "firstName": {
-        "label": "名（ローマ字）",
-        "placeholder": "Taro"
-      },
-      "lastName": {
-        "label": "姓（ローマ字）",
-        "placeholder": "Tanaka"
-      },
-      "age": {
-        "label": "年齢",
-        "placeholder": "35"
-      },
-      "address": {
-        "label": "住所",
-        "placeholder": "東京都江東区豊洲2-1-1"
-      },
-      "contactNo": {
-        "label": "連絡先（電話など）",
-        "placeholder": "+81-90-1234-5678"
-      }
-    },
-    "skills": {
-      "shopping": "買い物サポート",
-      "walk": "散歩・付き添い",
-      "meal_prep": "食事の準備",
-      "tech_help": "スマホ/PCサポート",
-      "chat": "お話相手"
-    },
-    "availabilityOptions": {
-      "weekday_morning": "平日 午前",
-      "weekday_afternoon": "平日 午後",
-      "weekday_evening": "平日 夕方・夜",
-      "weekend_morning": "週末 午前",
-      "weekend_afternoon": "週末 午後"
-    },
-    "helperText": "入力内容はマッチングにのみ使用され、あとから変更できます。",
-    "cta": {
-      "submit": "ケアギバー登録をする",
-      "submitting": "送信中..."
-    },
-    "ariaLabel": "ケアギバーのプロフィールフォーム"
-  }
+    "Hero":  {
+                 "brandTitle":  "ケアマッチ・ジャパン",
+                 "heroTitle":  "日本中のケアを必要とする人とボランティアをつなぎます",
+                 "heroSubtitle":  "ケアマッチ・ジャパンは、家族が介護のニーズを共有し、地域の思いやりあるボランティアとつながるお手伝いをします。",
+                 "postNeedLabel":  "支援を投稿する",
+                 "joinVolunteerLabel":  "ボランティアとして参加",
+                 "imageAlt":  "あたたかい雰囲気の日本の多世代コミュニティが屋外で楽しそうに交流している様子。",
+                 "nav":  {
+                             "home":  "ホーム",
+                             "about":  "私たちについて",
+                             "contact":  "お問い合わせ"
+                         },
+                 "aria":  {
+                              "switchToDark":  "ダークモードに切り替える",
+                              "switchToLight":  "ライトモードに切り替える",
+                              "switchLanguage":  "言語を切り替える"
+                          },
+                 "roleSelectPlaceholder":  "選択してください",
+                 "roleCareSeeker":  "介護サポートを探しています",
+                 "roleVolunteer":  "ボランティアとして参加します",
+                 "ctaJoin":  "コミュニティに参加する",
+                 "roleSelectLabel":  "参加する役割",
+                 "welcomeText":  {
+                                     "heading":  "ようこそ、ケアマッチJPへ",
+                                     "points":  [
+                                                    "私たちは、日本の高齢社会を支えるために、助けを必要とする方と、お手伝いしたい方をつなぐ小さなサービスです。",
+                                                    "買い物の付き添い・通院の同行・ちょっとした家事・見守りなど、日常の小さな依頼を、近くの信頼できるボランティアと安全にマッチングします。",
+                                                    "参加方法（支える側）: ボランティア登録 → かんたんな確認 → エリア・時間を設定 → 近くの依頼に応募。",
+                                                    "参加方法（支えを受ける側）: 依頼を作成 → 希望日時と場所を入力 → 近くの登録者からの提案を選び、予約を確定。",
+                                                    "外国籍の方へ: 英語と“やさしい日本語”に対応しています。少しの言葉でも大丈夫です。地域に貢献しながら、日本での生活やマナーも学べます。",
+                                                    "大切にしていること: 安全・プライバシー・時間厳守・高齢者やご家族へのやさしく丁寧なコミュニケーション。",
+                                                    "できる支援: 短時間の買い物、片付けのお手伝い、散歩の付き添い、安否確認の声かけ など、日々の小さな支え。",
+                                                    "お願い: 実名でのやり取り、開始／終了のチェックイン、短いレビューの記入にご協力ください。信頼の輪が広がります。",
+                                                    "私たちは小さなチームです。ご意見や「ここが使いにくい」という点があれば、ぜひ教えてください。改善に努めます。"
+                                                ]
+                                 }
+             },
+    "SignUp":  {
+                   "formSelector":  {
+                                        "stepLabel":  "ステップ1",
+                                        "title":  "参加する役割を選んでください",
+                                        "seekerLabel":  "ケアを受けたい方",
+                                        "seekerDescription":  "ご自身やご家族のサポートを依頼します。",
+                                        "giverLabel":  "ボランティアサポーター",
+                                        "giverDescription":  "近隣の方に時間とスキルを提供します。",
+                                        "selectLabel":  "役割を選択してください",
+                                        "selectPlaceholder":  "選択"
+                                    },
+                   "page":  {
+                                "title":  "プロフィールを作成",
+                                "subtitle":  "CareMatch Japanへの参加方法を教えてください。"
+                            }
+               },
+    "Metadata":  {
+                     "title":  "CareMatch Japan",
+                     "description":  "ケアが必要な家族と思いやりのあるボランティアをつなげます。"
+                 },
+    "Footer":  {
+                   "brand":  "ケアマッチ・ジャパン",
+                   "links":  {
+                                 "home":  "ホーム",
+                                 "about":  "私たちについて",
+                                 "contact":  "お問い合わせ",
+                                 "privacy":  "プライバシー"
+                             },
+                   "copyright":  "© 2025 ケアマッチ・ジャパン. All rights reserved."
+               },
+    "SeekerForm":  {
+                       "header":  {
+                                      "title":  "ケアシーカー登録フォーム",
+                                      "subtitle":  "入力内容を確認し、近くの信頼できるサポーターをご紹介します。"
+                                  },
+                       "sections":  {
+                                        "personalInfo":  "ご本人さまについて",
+                                        "contactDetails":  "連絡先",
+                                        "supportNeeded":  "希望するサポート",
+                                        "introduction":  "自己紹介（簡単でOKです）"
+                                    },
+                       "fields":  {
+                                      "firstName":  {
+                                                        "label":  "名（ファーストネーム）",
+                                                        "placeholder":  "太郎"
+                                                    },
+                                      "lastName":  {
+                                                       "label":  "姓（ラストネーム）",
+                                                       "placeholder":  "田中"
+                                                   },
+                                      "age":  {
+                                                  "label":  "年齢",
+                                                  "placeholder":  "60"
+                                              },
+                                      "address":  {
+                                                      "label":  "住所",
+                                                      "placeholder":  "東京都江東区豊洲2-1-1"
+                                                  },
+                                      "contactNo":  {
+                                                        "label":  "連絡先（電話番号）",
+                                                        "placeholder":  "+81-90-1234-5678"
+                                                    },
+                                      "intro":  {
+                                                    "placeholder":  "どんなサポートが必要か、簡単に教えてください",
+                                                    "label":  "自己紹介（必要なサポートなど）"
+                                                }
+                                  },
+                       "supportOptions":  {
+                                              "shopping":  "買い物サポート",
+                                              "clinic_escort":  "通院付き添い",
+                                              "meal_prep":  "食事づくり",
+                                              "companionship":  "話し相手・見守り",
+                                              "light_cleaning":  "簡単な掃除"
+                                          },
+                       "cta":  {
+                                   "submit":  "アカウント作成",
+                                   "submitting":  "送信中..."
+                               },
+                       "helperText":  "送信後、ケアマッチのアンバサダーが電話またはメールで今後の流れをご案内します。",
+                       "ariaLabel":  "ケア依頼者プロフィールフォーム"
+                   },
+    "GiverForm":  {
+                      "header":  {
+                                     "title":  "ケアギバー登録フォーム",
+                                     "subtitle":  "提供できるスキルと時間帯を入力すると、近くのケアシーカーとマッチしやすくなります。"
+                                 },
+                      "sections":  {
+                                       "serviceArea":  "対応エリア",
+                                       "skills":  "提供できるサポート",
+                                       "availability":  "対応できる時間帯",
+                                       "profile":  "プロフィール",
+                                       "personalInfo":  "個人情報",
+                                       "contactDetails":  "連絡先"
+                                   },
+                      "fields":  {
+                                     "serviceRadius":  {
+                                                           "label":  "移動できる距離（km）",
+                                                           "helper":  "自宅から何kmまで移動できますか"
+                                                       },
+                                     "intro":  {
+                                                   "label":  "自己紹介（短く）",
+                                                   "placeholder":  "近所の方々のお手伝いをしたいです。"
+                                               },
+                                     "vetted":  {
+                                                    "label":  "CareMatchのバックグラウンド確認を完了しています"
+                                                },
+                                     "firstName":  {
+                                                       "label":  "名（ローマ字）",
+                                                       "placeholder":  "Taro"
+                                                   },
+                                     "lastName":  {
+                                                      "label":  "姓（ローマ字）",
+                                                      "placeholder":  "Tanaka"
+                                                  },
+                                     "age":  {
+                                                 "label":  "年齢",
+                                                 "placeholder":  "35"
+                                             },
+                                     "address":  {
+                                                     "label":  "住所",
+                                                     "placeholder":  "東京都江東区豊洲2-1-1"
+                                                 },
+                                     "contactNo":  {
+                                                       "label":  "連絡先（電話など）",
+                                                       "placeholder":  "+81-90-1234-5678"
+                                                   }
+                                 },
+                      "skills":  {
+                                     "shopping":  "買い物サポート",
+                                     "walk":  "散歩・付き添い",
+                                     "meal_prep":  "食事の準備",
+                                     "tech_help":  "スマホ/PCサポート",
+                                     "chat":  "お話相手"
+                                 },
+                      "availabilityOptions":  {
+                                                  "weekday_morning":  "平日 午前",
+                                                  "weekday_afternoon":  "平日 午後",
+                                                  "weekday_evening":  "平日 夕方・夜",
+                                                  "weekend_morning":  "週末 午前",
+                                                  "weekend_afternoon":  "週末 午後"
+                                              },
+                      "helperText":  "入力内容はマッチングにのみ使用され、あとから変更できます。",
+                      "cta":  {
+                                  "submit":  "ケアギバー登録をする",
+                                  "submitting":  "送信中..."
+                              },
+                      "ariaLabel":  "ケアギバーのプロフィールフォーム"
+                  }
 }

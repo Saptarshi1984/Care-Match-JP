@@ -85,17 +85,10 @@ export default function SignUpPage() {
           alignItems="center"
           gap={3}
           shadow="xl"
-        >
-          <Heading
-            fontSize="lg"
-            color={roleTextColor}
-            textAlign="center"
-          >
-            {selectorT("title")}
-          </Heading>
-          <Text color={muted} fontSize="sm" textAlign="center">
+        >          
+          <Heading color={muted} fontSize="lg" textAlign="center">
             {selectorT("selectLabel")}
-          </Text>
+          </Heading>
           <Select.Root
             collection={roles}
             size="md"
@@ -113,7 +106,7 @@ export default function SignUpPage() {
             <Select.Label srOnly>{selectorT("selectLabel")}</Select.Label>
             <Select.Control>
               <Select.Trigger>
-                <Select.ValueText fontSize="md" color={roleTextColor} placeholder={selectorT("selectPlaceholder")} />
+                <Select.ValueText fontSize="sm" color={roleTextColor} placeholder={selectorT("selectPlaceholder")} />
               </Select.Trigger>
               <Select.IndicatorGroup>
                 <Select.Indicator />

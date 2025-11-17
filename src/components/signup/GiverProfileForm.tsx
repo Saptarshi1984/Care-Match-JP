@@ -1,8 +1,8 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useMemo, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { useColorModeValue } from "@/components/ui/color-mode";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export type GiverProfileData = {
   firstName: string;
@@ -10,21 +10,9 @@ export type GiverProfileData = {
   age: number;
   address: string;
   contactNo: string;
-  service_radius_km: number;
-  skills: string[];
-  availability: string[];
   intro: string;
   is_vetted_helper: boolean;
 };
-
-const SKILL_OPTIONS = ["shopping", "walk", "meal_prep", "tech_help", "chat"] as const;
-const AVAILABILITY_OPTIONS = [
-  "weekday_morning",
-  "weekday_afternoon",
-  "weekday_evening",
-  "weekend_morning",
-  "weekend_afternoon",
-] as const;
 
 const SUBMIT_ENDPOINT = "/api/signup/giver";
 
@@ -34,20 +22,19 @@ const DEFAULT_GIVER: GiverProfileData = {
   age: 0,
   address: "",
   contactNo: "",
-  service_radius_km: 0,
-  skills: [],
-  availability: [],
   intro: "",
   is_vetted_helper: false,
 };
 
 const createInitialFormState = (): GiverProfileData => ({
   ...DEFAULT_GIVER,
-  skills: [...DEFAULT_GIVER.skills],
-  availability: [...DEFAULT_GIVER.availability],
 });
 
-export default function GiverProfileForm() {
+export type GiverProfileFormProps = {
+  locale?: string;
+};
+
+export default function GiverProfileForm({ locale: localeProp }: GiverProfileFormProps = {}) {
   const [formData, setFormData] = useState<GiverProfileData>(() => createInitialFormState());
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState<{
@@ -55,6 +42,7 @@ export default function GiverProfileForm() {
     text: string | null;
   }>({ type: null, text: null });
   const t = useTranslations("GiverForm");
+  const locale = localeProp ?? useLocale();
 
   const titleColor = useColorModeValue("#0f172a", "#f8fafc");
   const bodyTextColor = useColorModeValue("#0f172a", "#e2e8f0");
@@ -73,10 +61,6 @@ export default function GiverProfileForm() {
   const inputBackground = useColorModeValue("#ffffff", "rgba(15,23,42,0.65)");
   const inputTextColor = useColorModeValue("#0f172a", "#f8fafc");
   const helperTextColor = bodyTextColor;
-  const optionActiveBorder = useColorModeValue("#0f172a", "#cbd5f5");
-  const optionInactiveBorder = useColorModeValue("rgba(15,23,42,0.15)", "rgba(148,163,184,0.35)");
-  const optionActiveBg = useColorModeValue("rgba(15,23,42,0.04)", "rgba(148,163,184,0.15)");
-  const optionInactiveBg = useColorModeValue("#ffffff", "rgba(15,23,42,0.7)");
   const buttonGradient = useColorModeValue(
     "linear-gradient(120deg, #111827, #0f172a 60%, #334155)",
     "linear-gradient(120deg, #e2e8f0, #cbd5f5 60%, #94a3b8)"
@@ -117,33 +101,12 @@ export default function GiverProfileForm() {
     [inputBackground, inputBorderColor, inputTextColor]
   );
 
-  const checkboxGridStyle = useMemo(
-    () => ({
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-      gap: "0.75rem",
-    }),
-    []
-  );
-
   const updateField = (
     field: keyof GiverProfileData,
     next: GiverProfileData[keyof GiverProfileData]
   ) => {
     setFormData((prev) => ({ ...prev, [field]: next }));
   };
-
-  const handleMultiSelect =
-    (field: "skills" | "availability") =>
-    (event: ChangeEvent<HTMLInputElement>) => {
-      const { checked, value: option } = event.target;
-      setFormData((prev) => {
-        const nextValues = checked
-          ? [...new Set([...prev[field], option])]
-          : prev[field].filter((entry) => entry !== option);
-        return { ...prev, [field]: nextValues };
-      });
-    };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -192,6 +155,7 @@ export default function GiverProfileForm() {
         flexDirection: "column",
         gap: "1.25rem",
       }}
+      lang={locale}
     >
       <header style={{ textAlign: "center", padding: "0 0.5rem" }}>
         <p style={{ color: titleColor, fontSize: "1.25rem", fontWeight: 700 }}>
@@ -241,6 +205,7 @@ export default function GiverProfileForm() {
                 id="giver-first-name"
                 name="firstName"
                 type="text"
+                lang={locale}
                 placeholder={t("fields.firstName.placeholder")}
                 value={formData.firstName}
                 onChange={(event) => updateField("firstName", event.target.value)}
@@ -255,6 +220,7 @@ export default function GiverProfileForm() {
                 id="giver-last-name"
                 name="lastName"
                 type="text"
+                lang={locale}
                 placeholder={t("fields.lastName.placeholder")}
                 value={formData.lastName}
                 onChange={(event) => updateField("lastName", event.target.value)}
@@ -269,6 +235,7 @@ export default function GiverProfileForm() {
                 id="giver-age"
                 name="age"
                 type="number"
+                lang={locale}
                 min={18}
                 max={120}
                 placeholder={t("fields.age.placeholder")}
@@ -308,6 +275,7 @@ export default function GiverProfileForm() {
               <textarea
                 id="giver-address"
                 name="address"
+                lang={locale}
                 placeholder={t("fields.address.placeholder")}
                 value={formData.address}
                 onChange={(event) => updateField("address", event.target.value)}
@@ -327,6 +295,7 @@ export default function GiverProfileForm() {
                 id="giver-contact"
                 name="contactNo"
                 type="tel"
+                lang={locale}
                 placeholder={t("fields.contactNo.placeholder")}
                 value={formData.contactNo}
                 onChange={(event) => updateField("contactNo", event.target.value)}
@@ -338,153 +307,13 @@ export default function GiverProfileForm() {
         </section>
 
         <section style={cardStyles}>
-          <p
-            style={{
-              fontSize: "0.95rem",
-              fontWeight: 600,
-              marginBottom: "1rem",
-            }}
-          >
-            {t("sections.serviceArea")}
-          </p>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: "1rem",
-            }}
-          >
-            <label className="form-field">
-              <span style={labelStyle}>{t("fields.serviceRadius.label")}</span>
-              <input
-                id="giver-service-radius"
-                name="service_radius_km"
-                type="number"
-                min={1}
-                max={30}
-                placeholder="10"
-                value={formData.service_radius_km === 0 ? "" : formData.service_radius_km}
-                onChange={(event) =>
-                  updateField(
-                    "service_radius_km",
-                    event.target.value === "" ? 0 : Number(event.target.value)
-                  )
-                }
-                style={inputStyle}
-                required
-              />
-            </label>
-          </div>
-          <p style={{ margin: 0, color: helperTextColor }}>
-            {t("fields.serviceRadius.helper")}
-          </p>
-        </section>
-
-        <section style={cardStyles}>
-          <p
-            style={{
-              fontSize: "0.95rem",
-              fontWeight: 600,
-              marginBottom: "1rem",
-            }}
-          >
-            {t("sections.skills")}
-          </p>
-          <div
-            className="checkbox-grid"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-              gap: "0.75rem",
-            }}
-          >
-            {SKILL_OPTIONS.map((option) => (
-              <label
-                key={option}
-                className="checkbox-option"
-                style={{
-                  borderRadius: "0.85rem",
-                  border: formData.skills.includes(option)
-                    ? `1px solid ${optionActiveBorder}`
-                    : `1px solid ${optionInactiveBorder}`,
-                  padding: "0.75rem 0.85rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.45rem",
-                  backgroundColor: formData.skills.includes(option)
-                    ? optionActiveBg
-                    : optionInactiveBg,
-                  transition: "border-color 0.2s, background-color 0.2s",
-                }}
-              >
-                <input
-                  type="checkbox"
-                  value={option}
-                  checked={formData.skills.includes(option)}
-                  onChange={handleMultiSelect("skills")}
-                />
-                <span>{t(`skills.${option}`)}</span>
-              </label>
-            ))}
-          </div>
-        </section>
-
-        <section style={cardStyles}>
-          <p
-            style={{
-              fontSize: "0.95rem",
-              fontWeight: 600,
-              marginBottom: "1rem",
-            }}
-          >
-            {t("sections.availability")}
-          </p>
-          <div
-            className="checkbox-grid"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-              gap: "0.75rem",
-            }}
-          >
-            {AVAILABILITY_OPTIONS.map((option) => (
-              <label
-                key={option}
-                className="checkbox-option"
-                style={{
-                  borderRadius: "0.85rem",
-                  border: formData.availability.includes(option)
-                    ? `1px solid ${optionActiveBorder}`
-                    : `1px solid ${optionInactiveBorder}`,
-                  padding: "0.75rem 0.85rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.45rem",
-                  backgroundColor: formData.availability.includes(option)
-                    ? optionActiveBg
-                    : optionInactiveBg,
-                  transition: "border-color 0.2s, background-color 0.2s",
-                }}
-              >
-                <input
-                  type="checkbox"
-                  value={option}
-                  checked={formData.availability.includes(option)}
-                  onChange={handleMultiSelect("availability")}
-                />
-                <span>{t(`availabilityOptions.${option}`)}</span>
-              </label>
-            ))}
-          </div>
-        </section>
-
-        <section style={cardStyles}>
           <div className="flex flex-col gap-4">
             <label className="form-field">
               <span style={labelStyle}>{t("fields.intro.label")}</span>
               <textarea
                 id="giver-intro"
                 name="intro"
+                lang={locale}
                 placeholder={t("fields.intro.placeholder")}
                 value={formData.intro}
                 onChange={(event) => updateField("intro", event.target.value)}
@@ -492,19 +321,7 @@ export default function GiverProfileForm() {
                 style={{ ...inputStyle, resize: "vertical", minHeight: "120px" }}
                 required
               />
-            </label>
-
-            <label
-              className="form-field"
-              style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
-            >
-              <input
-                type="checkbox"
-                checked={formData.is_vetted_helper}
-                onChange={(event) => updateField("is_vetted_helper", event.target.checked)}
-              />
-              <span>{t("fields.vetted.label")}</span>
-            </label>
+            </label>            
 
             <div className="flex flex-col gap-3 items-center">
               <p style={{ margin: 0, color: helperTextColor, textAlign: "center" }}>

@@ -118,20 +118,21 @@
     },
     "ariaLabel": "Care giver profile form"
   },
-  "SeekerForm": {
-    "header": {
-      "title": "Care Seeker Registration Form",
-      "subtitle": "A concierge will review this information to match you with trusted helpers nearby."
-    },
-    "sections": {
-      "personalInfo": "Personal information",
-      "contactDetails": "Contact details",
-      "supportNeeded": "Support needed"
-    },
-    "fields": {
-      "firstName": {
-        "label": "First name",
-        "placeholder": "Taro"
+    "SeekerForm": {
+      "header": {
+        "title": "Care Seeker Registration Form",
+        "subtitle": "A concierge will review this information to match you with trusted helpers nearby."
+      },
+      "sections": {
+        "personalInfo": "Personal information",
+        "contactDetails": "Contact details",
+        "supportNeeded": "Support needed",
+        "introduction": "Short introduction"
+      },
+      "fields": {
+        "firstName": {
+          "label": "First name",
+          "placeholder": "Taro"
       },
       "lastName": {
         "label": "Last name",
@@ -141,18 +142,22 @@
         "label": "Age",
         "placeholder": "60"
       },
-      "address": {
-        "label": "Address",
-        "placeholder": "2-1-1 Toyosu, Koto City, Tokyo"
+        "address": {
+          "label": "Address",
+          "placeholder": "2-1-1 Toyosu, Koto City, Tokyo"
+        },
+        "contactNo": {
+          "label": "Contact number",
+          "placeholder": "+81-90-1234-5678"
+        },
+        "intro": {
+          "label": "Short introduction",
+          "placeholder": "Tell us a bit about yourself and the support you need"
+        }
       },
-      "contactNo": {
-        "label": "Contact number",
-        "placeholder": "+81-90-1234-5678"
-      }
-    },
-    "supportOptions": {
-      "shopping": "Shopping support",
-      "clinic_escort": "Clinic escort",
+      "supportOptions": {
+        "shopping": "Shopping support",
+        "clinic_escort": "Clinic escort",
       "meal_prep": "Meal preparation",
       "companionship": "Friendly visit",
       "light_cleaning": "Light cleaning"
