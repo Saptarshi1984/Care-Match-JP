@@ -29,11 +29,11 @@
 - **Care Seeker** form (60+): first/last name, age validation, address, contact number, support categories
 - **Care Giver / Volunteer** form: service radius, skills, availability, intro (coming next)
 -­ **Role-aware Dashboard**
-- Single entry `/[locale]/dashboard` â†’ redirects:
-- Missing profile â†’ `/[locale]/onboarding/profile`
-- Seeker profile â†’ `/[locale]/dashboard/seeker`
-- Giver profile â†’ `/[locale]/dashboard/giver`
-- **Bilingual UX** (æ—¥æœ¬èªž / English) with locale-prefixed routes and translated copy
+- Single entry `/[locale]/dashboard` at redirects:
+- Missing profile at `/[locale]/onboarding/profile`
+- Seeker profile at `/[locale]/dashboard/seeker`
+- Giver profile at `/[locale]/dashboard/giver`
+- **Bilingual UX** (Japanese / English) with locale-prefixed routes and translated copy
 - **Clean data model** (single user, multiple roles: seeker/giver)
 - **Accessible inputs** (IME-friendly for Japanese typing; `lang="ja"` hints)
 
