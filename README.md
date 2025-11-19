@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# CareMatch Japan
 
-## Getting Started
+> **Status:** ðŸŸ¡ Ongoing Project  
+> Connecting caregiving families with compassionate volunteers in Japan. CareMatch JP safely matches everyday support requestsâ€”like grocery help, clinic escort, light chores, friendly check-insâ€”with trusted local helpers. The app is bilingual (æ—¥æœ¬èªž / English) and welcomes foreign nationals to participate and contribute to community life in Japan.
 
-First, run the development server:
+<p align="center">
+  <img src="public/assets/careMatchThumbnail.png" alt="CareMatch Japan preview" width="600" />
+</p>
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Framework:** Next.js (App Router) + React
+- **Language:** TypeScript
+- **Styling/UI:** Chakra UI (with dark/light mode)
+- **i18n:** `next-intl` (ja/en, locale-aware routing & messages)
+- **Auth:** Auth.js (NextAuth) with **LINE Login** (OpenID Connect)
+- **Database:** MongoDB + Mongoose
+- **Server:** Node.js, with optional Express-style middleware/handlers where needed
+- **State/Forms:** React (client components) + server route handlers 
+- **Deployment:** (TBD: Vercel )
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features (Current Scope)
 
-## Learn More
+- ðŸ” **Sign in / Sign up with LINE** (Auth.js provider)
+- ðŸ‘¤ **Compulsory profile completion** after first login
+  - **Care Seeker** form (60+): first/last name, age validation, address, contact number, support categories
+  - **Care Giver / Volunteer** form: service radius, skills, availability, intro (coming next)
+- ðŸ§­ **Role-aware Dashboard**
+  - Single entry `/[locale]/dashboard` â†’ redirects:
+    - Missing profile â†’ `/[locale]/onboarding/profile`
+    - Seeker profile â†’ `/[locale]/dashboard/seeker`
+    - Giver profile â†’ `/[locale]/dashboard/giver`
+- ðŸŒ **Bilingual UX** (æ—¥æœ¬èªž / English) with locale-prefixed routes and translated copy
+- ðŸ§± **Clean data model** (single user, multiple roles: seeker/giver)
+- â™¿ **Accessible inputs** (IME-friendly for Japanese typing; `lang="ja"` hints)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
