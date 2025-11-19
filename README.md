@@ -1,7 +1,7 @@
 ﻿# CareMatch Japan
 
-> **Status:** ðŸŸ¡ Ongoing Project  
-> Connecting caregiving families with compassionate volunteers in Japan. CareMatch JP safely matches everyday support requestsâ€”like grocery help, clinic escort, light chores, friendly check-insâ€”with trusted local helpers. The app is bilingual (æ—¥æœ¬èªž / English) and welcomes foreign nationals to participate and contribute to community life in Japan.
+> **Status:** Ongoing Project  
+> Connecting caregiving families with compassionate volunteers in Japan. CareMatch JP safely matches everyday support requests like grocery help, clinic escort, light chores, friendly check-in with trusted local helpers. The app is bilingual (Japanese / English) and welcomes foreign nationals to participate and contribute to community life in Japan.
 
 <p align="center">
   <img src="public/assets/careMatchThumbnail.png" alt="CareMatch Japan preview" width="600" />
@@ -24,18 +24,18 @@
 
 ## Features (Current Scope)
 
-- ðŸ” **Sign in / Sign up with LINE** (Auth.js provider)
-- ðŸ‘¤ **Compulsory profile completion** after first login
-  - **Care Seeker** form (60+): first/last name, age validation, address, contact number, support categories
-  - **Care Giver / Volunteer** form: service radius, skills, availability, intro (coming next)
-- ðŸ§­ **Role-aware Dashboard**
-  - Single entry `/[locale]/dashboard` â†’ redirects:
-    - Missing profile â†’ `/[locale]/onboarding/profile`
-    - Seeker profile â†’ `/[locale]/dashboard/seeker`
-    - Giver profile â†’ `/[locale]/dashboard/giver`
-- ðŸŒ **Bilingual UX** (æ—¥æœ¬èªž / English) with locale-prefixed routes and translated copy
-- ðŸ§± **Clean data model** (single user, multiple roles: seeker/giver)
-- â™¿ **Accessible inputs** (IME-friendly for Japanese typing; `lang="ja"` hints)
+-  **Sign in / Sign up with LINE** (Auth.js provider)
+-  **Compulsory profile completion** after first login
+- **Care Seeker** form (60+): first/last name, age validation, address, contact number, support categories
+- **Care Giver / Volunteer** form: service radius, skills, availability, intro (coming next)
+-­ **Role-aware Dashboard**
+- Single entry `/[locale]/dashboard` â†’ redirects:
+- Missing profile â†’ `/[locale]/onboarding/profile`
+- Seeker profile â†’ `/[locale]/dashboard/seeker`
+- Giver profile â†’ `/[locale]/dashboard/giver`
+- **Bilingual UX** (æ—¥æœ¬èªž / English) with locale-prefixed routes and translated copy
+- **Clean data model** (single user, multiple roles: seeker/giver)
+- **Accessible inputs** (IME-friendly for Japanese typing; `lang="ja"` hints)
 
 ---
 
